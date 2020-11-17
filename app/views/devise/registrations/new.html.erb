@@ -6,29 +6,38 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="input-group">
-      <%= f.label :ニックネーム, class:"label" %>
+      <%= f.label :ニックネーム, class:"relative" %>
+        <span class="absolute text-red-600">*</span>
       <%= f.text_field :nickname, class:"input" %>
     </div>
 
     <div class="input-group">
-      <%= f.label :メールアドレス, class:"label" %>
+      <%= f.label :メールアドレス, class:"relative" %>
+        <span class="absolute text-red-600">*</span>
       <%= f.email_field :email, autocomplete: "email", class:"input" %>
     </div>
 
     
 
     <div class="input-group">
-      <div class="flex">
-        <%= f.label :パスワード（最低６文字）, class: "label" %>
-      </div>
+      <%= f.label :パスワード（最低６文字）, class: "relative" %>
+        <span class="absolute text-red-600">*</span>
       <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
     </div>
 
     <div class="input-group">
-      <%= f.label :パスワード（確認）, class:"label" %>
+      <%= f.label :パスワード（確認）, class:"relative" %>
+        <span class="absolute text-red-600">*</span>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
     </div>
 
+
+    <div class="input-group">
+    <%= f.label :職業, class:"relative" %>
+      <span class="absolute text-red-600">*</span>
+    <%= f.collection_select(:career_id, Career.all, :id, :name, {}, {class:""}) %>
+    </div>
+    
     <div class='input-group'>
       <%= f.label :誕生日, class:"label" %>
       <div class="flex">
@@ -47,11 +56,6 @@
     </div>
 
     <div class="input-group">
-    <%= f.label :職業, class:"label" %>
-    <%= f.collection_select(:career_id, Career.all, :id, :name, {}, {class:""}) %>
-    </div>
-    
-    <div class="input-group">
     <%= f.label :性別, class:"label" %>
     <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:""}) %>
     </div>
@@ -63,8 +67,6 @@
     <hr class="mt-6 border" />
 
   <% end %>
-
-  <%= render "devise/shared/links" %>
 
 <% end %>
 

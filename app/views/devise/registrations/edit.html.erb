@@ -1,17 +1,19 @@
 <% content_for :devise_form do %>
-  <h2 class="pt-4 mb-8 text-4xl font-bold heading">Edit <%= resource_name.to_s.humanize %></h2>
+  <h2 class="pt-4 mb-8 text-4xl font-bold heading">ユーザー編集</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="input-group">
-      <%= f.label :nickname, class:"label" %>
+      <%= f.label :ニックネーム, class:"relative" %>
+        <span class="absolute text-red-600">*</span>
       <%= f.text_field :nickname, class:"input" %>
     </div>
 
     <div class="input-group">
-      <%= f.label :email, class:"label" %>
+      <%= f.label :メールアドレス, class:"relative" %>
+        <span class="absolute text-red-600">*</span>
       <%= f.email_field :email, autocomplete: "email", class:"input" %>
     </div>
 
@@ -22,39 +24,62 @@
     </div>
 
     <div class="input-group">
-      <%= f.label :password, class:"label" %>
+      <%= f.label :パスワード（最低６文字）, class:"relative" %>
+        <span class="absolute text-red-600">*</span>
       <%= f.password_field :password, autocomplete: "new-password", class:"input" %>
-      <p class="pt-1 text-sm italic text-grey-dark"> <% if @minimum_password_length %>
-          <%= @minimum_password_length %> characters minimum <% end %> (leave blank if you don't want to change it) </p>
+      <p class="pt-1 text-sm italic text-grey-dark">(変更しなければ空欄にしてください) </p>
 
     </div>
 
     <div class="input-group">
-      <%= f.label :password_confirmation, class: "label" %>
+      <%= f.label :パスワード（確認）, class: "relative" %>
+        <span class="absolute text-red-600">*</span>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
     </div>
 
     <div class="input-group">
-      <%= f.label :current_password, class: "label" %>
+      <%= f.label :現在のパスワード, class: "relative" %>
+        <span class="absolute text-red-600">*</span>
       <%= f.password_field :current_password, autocomplete: "current-password", class: "input" %>
-      <p class="pt-2 text-sm italic text-grey-dark">(we need your current password to confirm your changes)</p>
+      <p class="pt-2 text-sm italic text-grey-dark">(変更するために現在のパスワードを入力してください)</p>
+    </div>
+
+
+    <div class="input-group">
+    <%= f.label :職業, class:"relative" %>
+      <span class="absolute text-red-600">*</span>
+    <%= f.collection_select(:career_id, Career.all, :id, :name, {}, {class:""}) %>
+    </div>
+    
+    <div class='input-group'>
+      <%= f.label :誕生日, class:"relative" %>
+      <div class="flex">
+        <%= raw sprintf(
+                    f.date_select(
+                      :birthday,
+                      class:'select-birth',
+                      id:"birth-date",
+                      use_month_numbers: true,
+                      prompt:'--',
+                      start_year: 1930,
+                      end_year: (Time.now.year - 1),
+                      date_separator: '%s'),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+      </div>
+    </div>
+    <div class="input-group">
+    <%= f.label :性別, class:"label" %>
+    <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:""}) %>
     </div>
 
     <div class="input-group">
-      <%= f.submit "Update", class: "btn btn-default" %>
+      <%= f.submit "更新", class: "btn btn-default" %>
     </div>
   <% end %>
 
   <hr class="mt-6 mb-3 border" />
-
-  <h3 class="mb-4 text-xl font-bold heading">Cancel my account</h3>
-
   <div class="flex items-center justify-between">
-    <div class="flex-1">
-      <p class="py-4">Unhappy?</p>
-    </div>
-
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-red" %>
+    <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "ほんとに削除しますか？" }, method: :delete, class: "btn btn-red" %>
   </div>
 
 <% end %>
