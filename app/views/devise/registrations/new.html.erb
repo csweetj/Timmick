@@ -5,13 +5,13 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="input-group">
+    <div class="mb-6">
       <%= f.label :ニックネーム, class:"relative" %>
         <span class="absolute text-red-600">*</span>
       <%= f.text_field :nickname, class:"input" %>
     </div>
 
-    <div class="input-group">
+    <div class="mb-6">
       <%= f.label :メールアドレス, class:"relative" %>
         <span class="absolute text-red-600">*</span>
       <%= f.email_field :email, autocomplete: "email", class:"input" %>
@@ -19,26 +19,26 @@
 
     
 
-    <div class="input-group">
+    <div class="mb-6">
       <%= f.label :パスワード（最低６文字）, class: "relative" %>
         <span class="absolute text-red-600">*</span>
       <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
     </div>
 
-    <div class="input-group">
+    <div class="mb-6">
       <%= f.label :パスワード（確認）, class:"relative" %>
         <span class="absolute text-red-600">*</span>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
     </div>
 
 
-    <div class="input-group">
+    <div class="mb-6">
     <%= f.label :職業, class:"relative" %>
       <span class="absolute text-red-600">*</span>
     <%= f.collection_select(:career_id, Career.all, :id, :name, {}, {class:""}) %>
     </div>
     
-    <div class='input-group'>
+    <div class='mb-6'>
       <%= f.label :誕生日, class:"label" %>
       <div class="flex">
         <%= raw sprintf(
@@ -55,12 +55,12 @@
       </div>
     </div>
 
-    <div class="input-group">
+    <div class="mb-6">
     <%= f.label :性別, class:"label" %>
     <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:""}) %>
     </div>
     
-    <div class="input-group">
+    <div class="mb-6">
       <%= f.submit "登録", class: "btn btn-default" %>
     </div>
 

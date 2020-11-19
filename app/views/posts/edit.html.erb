@@ -1,6 +1,8 @@
-<h1>Editing Post</h1>
+<div class="max-w-2xl m-auto">
+  <h1>投稿編集</h1>
 
-<%= render 'form', post: @post %>
+  <%= render 'form', post: @post %>
 
-<%= link_to '詳細', @post %> |
+<%= link_to '削除', @post, method: :delete, data: { confirm: 'ほんとに削除しますか？' } %></td> |
 <%= link_to '戻る', posts_path %>
+</div>

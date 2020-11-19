@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="max-w-4xl m-auto">
+  <%= link_to @post do %>
+  <% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  <div class="p-6">
+    <h1 class="text-2xl font-bold"><%= @post.title %></h1>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+    <div class="leading-normal text-lg">
+      <%= @post.body %>
+    </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
-
-<%= link_to '編集', edit_post_path(@post) %> |
-<%= link_to '戻る', posts_path %>
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      <div class="my-4">
+        <%= link_to '編集', edit_post_path(@post), class: "btn btn-default" %>
+        <%= link_to '削除', @post, method: :delete, data: { confirm: 'ほんとに削除しますか？' }, class: "btn btn-default" %>
+    </div>
+    <% end %>
+  </div>
+</div>
