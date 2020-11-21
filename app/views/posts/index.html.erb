@@ -4,11 +4,14 @@
     <%= link_to "新規投稿", new_post_path, class: "btn btn-default" if user_signed_in? %>
   </div>
 
-  <div class="flex flex-wrap items-center justify-between">
   <% @posts.each do |post| %>
-    <article class="border rounded-lg lg:w-1/3 w-full">
-      <%= link_to post do %>
-      <% end %>
+  <article class="border rounded-lg lg:w-1/3 w-full">
+    <%= link_to post do %>
+      <div class ="flex">
+        <%= image_tag post.feature_images[0].variant(resize: '250x300') %>
+      </div>
+    <% end %>
+  
 
       <div class="p-6">
         <h1 class="text-2xl font-bold"><%= link_to post.title, post %></h1>

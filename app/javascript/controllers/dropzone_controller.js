@@ -19,7 +19,8 @@ export default class extends Controller {
     Dropzone.autoDiscover = false; // necessary quirk for Dropzone error in console
   }
 
-  // Private
+  //以下Privateメソッド
+  
   hideFileInput() {
     this.inputTarget.disabled = true;
     this.inputTarget.style.display = "none";
@@ -50,7 +51,7 @@ export default class extends Controller {
   }
 
   get maxFiles() {
-    return this.data.get("maxFiles") || 1;
+    return this.data.get("maxFiles") || 4;
   }
 
   get maxFileSize() {
@@ -64,6 +65,19 @@ export default class extends Controller {
   get addRemoveLinks() {
     return this.data.get("addRemoveLinks") || true;
   }
+  
+  get dictRemoveFile() {
+    return this.data.get("dictRemoveFile") || "削除";
+  }
+  
+  get dictMaxFilesExceeded() {
+    return this.data.get("dictMaxFilesExceeded") || "アップロードできるのは最大４枚目まで";
+  }
+  
+  get dictInvalidFileType() {
+    return this.data.get("dictInvalidFileType") || "jpg,jpeg,png,gif形式のファイルを選択してください";
+  }
+  
 }
 
 class DirectUploadController {
@@ -150,6 +164,9 @@ function createDropZone(controller) {
     maxFilesize: controller.maxFileSize,
     acceptedFiles: controller.acceptedFiles,
     addRemoveLinks: controller.addRemoveLinks,
+    dictRemoveFile: controller.dictRemoveFile,
+    dictMaxFilesExceeded: controller.dictMaxFilesExceeded,
+    dictInvalidFileType: controller.dictInvalidFileType,
     autoQueue: false
   });
 }

@@ -1,5 +1,10 @@
-<div class="max-w-4xl m-auto">
+<div class="max-w-4xl m-auto ">
   <%= link_to @post do %>
+  <div class="flex space-x-4">
+    <% @post.feature_images.each do |image| %>
+      <%= image_tag image.variant(resize: '250x300') %>
+    <% end %>
+  </div>
   <% end %>
 
   <div class="p-6">

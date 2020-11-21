@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="mb-6"">
+  <div class="mb-6">
     <%= form.label :タイトル, class: "label" %>
     <%= form.text_field :title, class: "input" %>
   </div>
@@ -22,17 +22,17 @@
   </div>
 
   <div class="mb-6">
-    <%= form.label :images, class: "label" %>
-    <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="1">
-      <%= form.file_field :images, direct_upload: true, multiple: true, data: { target: "dropzone.input" }%>
-      <div class="dropzone-msg dz-message needsclick text-gary-600"> 
-        <h3 class="dropzone-msg-title">ファイルをここにドロップ もしくは ここをクリック</h3>
-        <span class="dropzone-msg-desc text-sm">１枚あたり最大２MBまで</span>
+    <%= form.label :画像（１枚目は投稿サムネになります）, class: "label" %>
+    <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="4" data-dropzone-accepted-files="image/jpeg,image/png,image/gif">
+    <%= form.file_field :feature_images, direct_upload: true, multiple: true, data: { target: 'dropzone.input' } %>
+    <div class="dropzone-msg dz-message needsclick text-gray-600">
+      <h3 class="dropzone-msg-title">ファイルをここにドロップする もしくは ここをクリックする</h3>
+      <span class="dropzone-msg-desc text-sm">最大４枚まで（１枚当たり２MBまで）</span>
       </div>
     </div>
   </div>
 
   <div class="mb-6">
-    <%= form.submit class: "btn btn-default" %>
+    <%= form.submit  class: "btn-default btn" %>
   </div>
 <% end %>
