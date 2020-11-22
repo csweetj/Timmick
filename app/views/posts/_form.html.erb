@@ -13,12 +13,12 @@
 
   <div class="mb-6">
     <%= form.label :タイトル, class: "label" %>
-    <%= form.text_field :title, class: "input" %>
+    <%= form.text_field :title, class: "input", placeholder: "最大30文字まで", maxlength: "30" %>
   </div>
 
   <div class="mb-6">
     <%= form.label :本文, class: "label" %>
-    <%= form.text_area :body, class: "input" %>
+    <%= form.text_area :body, class: "input", placeholder: "最大400文字まで", maxlength: "400" %>
   </div>
 
   <div class="mb-6">
@@ -26,8 +26,8 @@
     <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="4" data-dropzone-accepted-files="image/jpeg,image/png,image/gif">
     <%= form.file_field :feature_images, direct_upload: true, multiple: true, data: { target: 'dropzone.input' } %>
     <div class="dropzone-msg dz-message needsclick text-gray-600">
-      <h3 class="dropzone-msg-title">ファイルをここにドロップする もしくは ここをクリックする</h3>
-      <span class="dropzone-msg-desc text-sm">最大４枚まで（１枚当たり２MBまで）</span>
+      <h3 class="dropzone-msg-title">ファイルをここにドロップ または ここをクリック</h3>
+      <span class="dropzone-msg-desc text-sm">最大4枚まで（1枚当たり2MBまで）</span>
       </div>
     </div>
   </div>
