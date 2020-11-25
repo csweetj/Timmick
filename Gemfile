@@ -64,6 +64,6 @@ gem 'better_errors', '~> 2.9', '>= 2.9.1'
 # カテゴリ
 gem 'active_hash'
 gem 'pry-rails'
-#画像処理
-gem 'mini_magick'
+# 画像処理
 gem 'image_processing', '~> 1.2'
+gem 'mini_magick'

@@ -12,13 +12,15 @@
   <% end %>
 
   <div class="mb-6">
-    <%= form.label :タイトル, class: "label" %>
-    <%= form.text_field :title, class: "input" %>
+    <%= form.label :タイトル（最大30字まで）, class: "relative" %>
+      <span class="absolute text-red-600">*</span>
+    <%= form.text_field :title, class: "input", maxlength:'30'%>
   </div>
 
   <div class="mb-6">
-    <%= form.label :本文, class: "label" %>
-    <%= form.text_area :body, class: "input" %>
+    <%= form.label :本文（最大140字まで）, class: "relative" %>
+      <span class="absolute text-red-600">*</span>
+    <%= form.text_area :body, class: "input", maxlength:'140', rows: '5' %>
   </div>
 
   <div class="mb-6">
@@ -33,6 +35,6 @@
   </div>
 
   <div class="mb-6">
-    <%= form.submit  class: "btn-default btn" %>
+    <%= form.submit "作成する", class: "btn-default btn" %>
   </div>
 <% end %>
