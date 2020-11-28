@@ -1,8 +1,123 @@
 <div class="max-w-6xl m-auto">
-  
+
   <div class="flex items-center justify-between pb-4 mb-4 border-b">
     <h1 class="text-xl font-bold mb-0 text-gray-500">これからの予定は？ </h1>
   </div>
 
+  <div class="flex flex-wrap">
+    <div class="p-1 md:w-1/2">
+        <div class="shadow-lg group container rounded-md flex justify-center items-center  mx-auto study">
+            <div  class="w-full image-cover rounded-t-md" >
+              <div class="opacity-0 group-hover:opacity-100 text-center">
+                <span class="text-white tracking-wider leading-relaxed font-sans">勉学</span> 
+                <div class="pt-4">
+                  <%= link_to  "Learn more", timers_study_path, class:"rounded-lg p-2 bg-white text-gray-700 font-bold text-lg" %>  
+                </div>
+            </div>
+        </div>
+        </div>  
+    </div>
+    <div class="p-1 md:w-1/2">
+        <div class="shadow-lg group container rounded-md flex justify-center items-center  mx-auto relax">
+            <div  class="w-full image-cover rounded-t-md" >
+              <div class="opacity-0 group-hover:opacity-100 text-center">
+                <span class="text-white tracking-wider leading-relaxed font-sans">休憩</span> 
+                <div class="pt-4">
+                  <%= link_to  "Learn more", timers_relax_path, class:"rounded-lg p-2 bg-white text-gray-700 font-bold text-lg" %>
+                </div>
+            </div>
+        </div>
+        </div>  
+    </div>
+    <div class="p-1 md:w-1/2">
+        <div class="shadow-lg group container rounded-md flex justify-center items-center mx-auto training">
+            <div  class="w-full image-cover rounded-t-md" >
+              <div class="opacity-0 group-hover:opacity-100 text-center">
+                <span class="text-white tracking-wider leading-relaxed font-sans">トレーニング</span> 
+                <div class="pt-4">
+                  <%= link_to  "Learn more", timers_training_path, class:"rounded-lg p-2 bg-white text-gray-700 font-bold text-lg" %>
+                </div>
+            </div>
+        </div>
+        </div>  
+    </div>
+    <div class="p-1 md:w-1/2">
+        <div class="shadow-lg group container rounded-md flex justify-center items-center mx-auto game">
+            <div  class="w-full image-cover rounded-t-md" >
+              <div class="opacity-0 group-hover:opacity-100 text-center">
+                <span class="text-white tracking-wider leading-relaxed font-sans">娯楽</span> 
+                <div class="pt-4">
+                   <%= link_to  "Learn more", timers_game_path, class:"rounded-lg p-2 bg-white text-gray-700 font-bold text-lg" %>
+                </div>
+            </div>
+        </div>
+        </div>  
+    </div>
+  </div>
+  
+
+  
   <%= render  "post" %>
 </div>
+
+
+
+
+
+
+<style>
+  .study{
+  background-image:url('/assets/study.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+}
+  .study:hover{
+    background-image:
+    linear-gradient(to bottom right, rgba(0,0,70,0.8), rgba(28,181,224,0.8)),
+    url('/assets/study.jpg');
+    }
+  
+  .relax{
+  background-image:url('/assets/relax.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+}
+   .relax:hover{
+    background-image:
+    linear-gradient(to bottom right,
+     rgba(17,153,142,0.8), rgba(56,239,125,0.8) ),
+     url('/assets/relax.jpg');
+    }
+  
+  .training{
+  background-image:url('/assets/training.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+}
+  .training:hover{
+    background-image:
+    linear-gradient(to bottom right,
+     rgba(241,39,17,0.8), rgba(245,175,25,0.8) ),
+     url('/assets/training.jpg');
+    }
+  
+  .game{
+  background-image:url('/assets/game.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+}
+  .game:hover{
+    background-image:
+    linear-gradient(to bottom right,
+     rgba(3,0,30,0.8), rgba(115,3,192,0.8), rgba(236,56,188,0.8), rgba(253,239,249,0.8) ),
+     url('/assets/game.jpg');
+    }
+
+    .image-cover  {
+      height:300px;
+    }
+  </style>
