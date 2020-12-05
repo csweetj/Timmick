@@ -19,11 +19,11 @@
         <p class="leading-normal whitespace-pre-wrap py-4"><%= @post.body %></p>
     </div>
 
-    <% if user_signed_in? && current_user.id == @post.user_id %>
-      <div class="float-right">
+    <div class="">
+      <% if user_signed_in? && current_user.id == @post.user_id %>
         <%= link_to '編集', edit_post_path(@post), class: "btn btn-default" %>
         <%= link_to '削除', @post, method: :delete, data: { confirm: 'ほんとに削除しますか？' }, class: "btn btn-default" %>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>

@@ -279,6 +279,9 @@ module.exports = {
     }),
     inset: {
       '0': '0',
+      '1/4': '25%',
+      '1/2': '50%',
+      '3/4': '75%',
       auto: 'auto',
     },
     letterSpacing: {
@@ -572,6 +575,7 @@ module.exports = {
     translate: (theme, { negative }) => ({
       ...theme('spacing'),
       ...negative(theme('spacing')),
+      '-5': '-500%',
       '-1': '-100%',
       '-3/4': '-75%',
       '-1/2': '-50%',
@@ -582,6 +586,7 @@ module.exports = {
       "1": '100%',
       '2': '200%',
       '3': '300%',
+      '5': '500%',
     }),
     skew: {
       '-12': '-12deg',

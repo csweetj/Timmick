@@ -1,9 +1,19 @@
-<div class="max-w-6xl text-6xl bg-gray-400 text-center m-auto p-10 border rounded-lg">
-  <div id="timer" class="bg-gray-300">00:00</div>
-    <div class="">
-      <div id="min" class="btn btn-default">Min</div>
-      <div id="sec" class="btn btn-default">Sec</div>
+<!-- タイマー -->
+<div class="max-w-2xl text-6xl bg-gray-400 text-center m-auto p-10 border rounded-lg">
+  <p class="text-lg">ポモドーロ・テクニック</p>
+  <div id="timer" class="bg-gray-300">25:00</div>
+    <div>
       <div id="reset" class="btn btn-default">Reset</div>
       <div id="start" class="btn btn-default">Start</div>
     </div>
+</div>
+
+<!-- モーダルウィンドウ -->
+<div class="text-center m-auto p-10">
+  <div id="open" class="btn btn-default">詳細を見る</div>
+  <div id="mask" class="fixed bg-gray-500 bg-opacity-75 inset-0 hidden z-0"></div>
+  <section id="modal" class="bg-white w-1/4 absolute border rounded-lg p-10 inset-x-0 top-1/4 m-auto transform -translate-y-5 z-10">
+    <p class="">お疲れ様でした！！休憩しましょう！</p>
+    <div id="rest" class="btn btn-default mt-4">休憩する</div>
+  </section>
 </div>
