@@ -1,12 +1,10 @@
 if (document.URL.match( /study/ )) {
-
   function timer() {
+    
+    //タイマー
     const timer = document.getElementById('timer');
-    // const min = document.getElementById('min');
-    // const sec = document.getElementById('sec');
-    const reset = document.getElementById('reset');
     const start = document.getElementById('start');
-  
+
     let startTime;
     let timeLeft;
     let timeToCountDown = 25 * 60 * 1000;
@@ -35,6 +33,7 @@ if (document.URL.match( /study/ )) {
           timeLeft = 0;
           timeToCountDown = 0;
           updateTimer(timeLeft);
+          document.getElementById('open').click();
           return;
         }
         updateTimer(timeLeft);
@@ -43,19 +42,19 @@ if (document.URL.match( /study/ )) {
     }
   
   
-   start.addEventListener('click', () => {
-     if (isRunning === false) {
-       isRunning = true;
-       start.textContent = 'Stop';
-       startTime = Date.now();
-       countDown();
-     } else {
-       isRunning = false;
-       start.textContent = 'Start';
-       timeToCountDown = timeLeft;
-       clearTimeout(timerId);
-     }
-   });
+    start.addEventListener('click', () => {
+      if (isRunning === false) {
+        isRunning = true;
+        start.textContent = 'Stop';
+        startTime = Date.now();
+        countDown();
+      } else {
+        isRunning = false;
+        start.textContent = 'Start';
+        timeToCountDown = timeLeft;
+        clearTimeout(timerId);
+      }
+    });
    
   //  min.addEventListener('click', () => {
   //    if (isRunning === true) {
@@ -79,10 +78,40 @@ if (document.URL.match( /study/ )) {
   //    updateTimer(timeToCountDown);
   //  });
    
-   reset.addEventListener('click', () => {
-     timeToCountDown = 25 * 60 * 1000;
-     updateTimer(timeToCountDown);
-   });
+    // reset.addEventListener('click', () => {
+    //   timeToCountDown = 25 * 60 * 1000;
+    //   updateTimer(timeToCountDown);
+    // });
+
+   
+    //モーダルウィンドウ 
+    const open = document.getElementById('open');
+    const rest = document.getElementById('rest');
+    const keep = document.getElementById('keep');
+    const modal = document.getElementById('modal');
+    const mask = document.getElementById('mask');
+    
+    function removeModalWindow() {
+      mask.classList.add('hidden');
+      modal.classList.add('hidden');
+    }
+
+    open.addEventListener('click', () => {
+      mask.classList.remove('hidden');
+      modal.classList.remove('hidden');
+    });
+
+    rest.addEventListener('click', () => {
+      removeModalWindow();
+      timeToCountDown = 5 * 60 * 1000;
+      document.getElementById('start').click();
+    });
+
+    keep.addEventListener('click', () => {
+      removeModalWindow();
+      timeToCountDown = 25 * 60 * 1000;
+      document.getElementById('start').click();
+    });
   }
   
   window.addEventListener('load', timer)
