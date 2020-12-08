@@ -1,20 +1,54 @@
-
-<!-- タイマー -->
-<div class="max-w-2xl text-6xl bg-gray-400 text-center m-auto p-10 border rounded-lg">
-  <p class="text-lg">ポモドーロ・テクニック</p>
-  <div id="timer" class="bg-gray-300">25:00</div>
-    <div>
-      <div id="start" class="btn btn-default">Start</div>
+<div class="container px-5 py-24 mx-auto flex flex-wrap flex-col">
+  <!-- タブメニューー -->
+  <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row cursor-pointer">
+    <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+      <a class="text-s font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white hover:bg-blue-600 hover:text-white" id="PomodoroMenu">ポモドーロ・テクニック</a>
+    </li>
+    <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+      <a class="text-s font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-400 bg-white hover:bg-blue-400 hover:text-white" id="StudentMenu">学生気分</a>
+    </li>
+  </ul>
+  
+  <!-- ポモドーロ・テクニックタイマー -->
+  <section class="bg-blue-600 border rounded hidden" id="Pomodoro">
+    <!-- タイマー -->
+    <div class="max-w-2xl text-6xl text-center m-auto p-10">
+      <div id="PomodoroTimer">25:00</div>
+      <div id="PomodoroStart" class="btn btn-default">Start</div>
+      <div id="PomodoroReset" class="btn btn-default hidden"></div>
+    </div>   
+    <!-- モーダルウィンドウ -->
+    <div class="text-center m-auto p-10">
+      <div id="PomodoroOpen"></div>
+      <div id="PomodoroMask" class="fixed bg-gray-500 bg-opacity-75 inset-0 hidden z-0"></div>
+      <section id="PomodoroModal" class="bg-white w-1/4 absolute border rounded-lg p-10 inset-x-0 top-1/4 m-auto hidden">
+        <p class="">タイムアップです！</p>
+        <p id="PomodoroRest" class="btn btn-default mt-4">休憩する</p>
+        <p id="PomodoroKeep" class="btn btn-default mt-4">もっと頑張る</p>
+      </section>   
+    </div> 
+  </section>
+  
+  <!-- 学生気分タイマー -->
+  <section class="bg-blue-400 border rounded hidden" id="Student">
+    <!-- タイマー -->
+    <div class="max-w-2xl text-6xl text-center m-auto p-10 ">
+    <div id="StudentTimer">50:00</div>
+    <div id="StudentStart" class="btn btn-default">Start</div>
+    <div id="StudentReset" class="btn btn-default hidden"></div>
     </div>
-</div>
-
-<!-- モーダルウィンドウ -->
-<div class="text-center m-auto p-10">
-  <div id="open"></div>
-  <div id="mask" class="fixed bg-gray-500 bg-opacity-75 inset-0 hidden z-0"></div>
-  <section id="modal" class="bg-white w-1/4 absolute border rounded-lg p-10 inset-x-0 top-1/4 m-auto hidden">
-    <p class="">タイムアップです！</p>
-    <p id="rest" class="btn btn-default mt-4">休憩する</p>
-    <p id="keep" class="btn btn-default mt-4">もっと頑張る</p>
+    <!-- モーダルウィンドウ -->
+    <div class="text-center m-auto p-10">
+      <div id="StudentOpen"></div>
+      <div id="StudentMask" class="fixed bg-gray-500 bg-opacity-75 inset-0 hidden z-0"></div>
+      <section id="StudentModal" class="bg-white w-1/4 absolute border rounded-lg p-10 inset-x-0 top-1/4 m-auto hidden">
+        <p class="">タイムアップです！</p>
+        <p id="StudentRest" class="btn btn-default mt-4">休憩する</p>
+        <p id="StudentKeep" class="btn btn-default mt-4">もっと頑張る</p>
+      </section>   
+    </div>     
   </section>
 </div>
+
+
+
