@@ -10,6 +10,7 @@ require("channels")
 
 //タイマー機能
 require("../study_timer")
+require("../relax_timer")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

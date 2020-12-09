@@ -79,13 +79,13 @@ if (document.URL.match( /study/ )) {
       if (isRunning === false) {
         isRunning = true;
         PomodoroStart.textContent = 'Stop';
-        StudentMenu.classList.add('pointer-events-none', 'opacity-25');
+        StudentMenu.classList.add('pointer-events-none', 'opacity-50');
         startTime = Date.now();
         PomodoroCountDown();
       } else {
         isRunning = false;
         PomodoroStart.textContent = 'Start';
-        StudentMenu.classList.remove('pointer-events-none', 'opacity-25');
+        StudentMenu.classList.remove('pointer-events-none', 'opacity-50');
         PomodoroTimeToCountDown = timeLeft;
         clearTimeout(timerId);
       }
@@ -95,13 +95,13 @@ if (document.URL.match( /study/ )) {
       if (isRunning === false) {
         isRunning = true;
         StudentStart.textContent = 'Stop';
-        PomodoroMenu.classList.add('pointer-events-none', 'opacity-25');
+        PomodoroMenu.classList.add('pointer-events-none', 'opacity-50');
         startTime = Date.now();
         StudentCountDown();
       } else {
         isRunning = false;
         StudentStart.textContent = 'Start';
-        PomodoroMenu.classList.remove('pointer-events-none', 'opacity-25');
+        PomodoroMenu.classList.remove('pointer-events-none', 'opacity-50');
         StudentTimeToCountDown = timeLeft;
         clearTimeout(timerId);
       }

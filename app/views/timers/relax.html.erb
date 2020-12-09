@@ -1,0 +1,51 @@
+<div class="container px-5 py-24 mx-auto flex flex-wrap flex-col">
+  <!-- タブメニューー -->
+  <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row cursor-pointer">
+    <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+      <a class="text-s font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-green-600 bg-white hover:bg-green-600 hover:text-white" id="BoxBreathingMenu">ボックス呼吸法</a>
+    </li>
+    <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+      <a class="text-s font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-green-400 bg-white hover:bg-green-400 hover:text-white" id="RemSleepMenu">レム仮眠・昼寝</a>
+    </li>
+  </ul>
+  
+  <!-- ボックス呼吸法タイマー -->
+  <section class="bg-green-600 border rounded hidden" id="BoxBreathing">
+    <!-- タイマー -->
+    <div class="max-w-2xl text-6xl text-center m-auto p-10">
+      <div id="BoxBreathingTimer">00:04</div>
+      <div id="BoxBreathingStart" class="btn btn-default">Start</div>
+      <div id="BoxBreathingReset" class="btn btn-default hidden"></div>
+    </div>   
+    <!-- モーダルウィンドウ -->
+    <div class="text-center m-auto p-10">
+      <div id="BoxBreathingOpen"></div>
+      <div id="BoxBreathingMask" class="fixed bg-gray-500 bg-opacity-75 inset-0 hidden z-0"></div>
+      <section id="BoxBreathingModal" class="bg-white w-1/4 absolute border rounded-lg p-10 inset-x-0 top-1/4 m-auto hidden">
+        <p class=""></p>
+        <p id="BoxBreathingRest" class="btn btn-default mt-4"></p>
+        <p id="BoxBreathingKeep" class="btn btn-default mt-4"></p>
+      </section>   
+    </div> 
+  </section>
+  
+  <!-- レム仮眠・昼寝タイマー -->
+  <section class="bg-green-400 border rounded hidden" id="RemSleep">
+    <!-- タイマー -->
+    <div class="max-w-2xl text-6xl text-center m-auto p-10 ">
+    <div id="RemSleepTimer">15:00</div>
+    <div id="RemSleepStart" class="btn btn-default">Start</div>
+    <div id="RemSleepReset" class="btn btn-default hidden"></div>
+    </div>
+    <!-- モーダルウィンドウ -->
+    <div class="text-center m-auto p-10">
+      <div id="RemSleepOpen"></div>
+      <div id="RemSleepMask" class="fixed bg-gray-500 bg-opacity-75 inset-0 hidden z-0"></div>
+      <section id="RemSleepModal" class="bg-white w-1/4 absolute border rounded-lg p-10 inset-x-0 top-1/4 m-auto hidden">
+        <p class="">おはようございます！！</p>
+        <p id="RemSleepRest" class="btn btn-default mt-4">元気になった！！</p>
+        <p id="RemSleepKeep" class="btn btn-default mt-4">あと少し寝る...</p>
+      </section>   
+    </div>     
+  </section>
+</div>
