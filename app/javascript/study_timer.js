@@ -138,7 +138,7 @@ if (document.URL.match( /study/ )) {
     //モーダルウィンドウ 
     //ポモドーロ テクニック
     const PomodoroOpen = document.getElementById('PomodoroOpen');
-    const PomodoroRest = document.getElementById('PomodoroRest');
+    const PomodoroReset = document.getElementById('PomodoroReset');
     const PomodoroKeep = document.getElementById('PomodoroKeep');
     const PomodoroModal = document.getElementById('PomodoroModal');
     const PomodoroMask = document.getElementById('PomodoroMask');
@@ -153,7 +153,7 @@ if (document.URL.match( /study/ )) {
       PomodoroModal.classList.remove('hidden');
     });
 
-    PomodoroRest.addEventListener('click', () => {
+    PomodoroReset.addEventListener('click', () => {
       PomodoroRemoveModalWindow();
       PomodoroTimeToCountDown = 5 * 60 * 1000;
       document.getElementById('PomodoroStart').click();
@@ -173,7 +173,7 @@ if (document.URL.match( /study/ )) {
 
     //学生気分
     const StudentOpen = document.getElementById('StudentOpen');
-    const StudentRest = document.getElementById('StudentRest');
+    const StudentReset = document.getElementById('StudentReset');
     const StudentKeep = document.getElementById('StudentKeep');
     const StudentModal = document.getElementById('StudentModal');
     const StudentMask = document.getElementById('StudentMask');
@@ -188,7 +188,7 @@ if (document.URL.match( /study/ )) {
       StudentModal.classList.remove('hidden');
     });
 
-    StudentRest.addEventListener('click', () => {
+    StudentReset.addEventListener('click', () => {
       StudentRemoveModalWindow();
       StudentTimeToCountDown = 10 * 60 * 1000;
       document.getElementById('StudentStart').click();

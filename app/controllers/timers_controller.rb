@@ -5,7 +5,7 @@ class TimersController < ApplicationController
   def relax
   end
   
-  def training
+  def fitness
   end
   
   def game

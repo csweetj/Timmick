@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   #タイマーページ用ルーティング
   get "timers/study" => "timers#study"
   get "timers/relax" => "timers#relax"
-  get "timers/training" => "timers#training"
+  get "timers/fitness" => "timers#fitness"
   get "timers/game" => "timers#game"
 end

@@ -136,9 +136,9 @@ if (document.URL.match( /relax/ )) {
 
    
     //モーダルウィンドウ 
-    //ポモドーロ テクニック
+    //ボックス呼吸法
     const BoxBreathingOpen = document.getElementById('BoxBreathingOpen');
-    const BoxBreathingRest = document.getElementById('BoxBreathingRest');
+    const BoxBreathingReset = document.getElementById('BoxBreathingReset');
     const BoxBreathingKeep = document.getElementById('BoxBreathingKeep');
     const BoxBreathingModal = document.getElementById('BoxBreathingModal');
     const BoxBreathingMask = document.getElementById('BoxBreathingMask');
@@ -154,7 +154,7 @@ if (document.URL.match( /relax/ )) {
       document.getElementById('BoxBreathingStart').click();
     });
 
-    BoxBreathingRest.addEventListener('click', () => {
+    BoxBreathingReset.addEventListener('click', () => {
       BoxBreathingRemoveModalWindow();
       BoxBreathingTimeToCountDown = 4 * 1000;
       document.getElementById('BoxBreathingStart').click();
@@ -172,9 +172,9 @@ if (document.URL.match( /relax/ )) {
       BoxBreathingTimer.textContent = "00:04";
     });
 
-    //学生気分
+    //レム仮眠・昼寝
     const RemSleepOpen = document.getElementById('RemSleepOpen');
-    const RemSleepRest = document.getElementById('RemSleepRest');
+    const RemSleepReset = document.getElementById('RemSleepReset');
     const RemSleepKeep = document.getElementById('RemSleepKeep');
     const RemSleepModal = document.getElementById('RemSleepModal');
     const RemSleepMask = document.getElementById('RemSleepMask');
@@ -189,7 +189,7 @@ if (document.URL.match( /relax/ )) {
       RemSleepModal.classList.remove('hidden');
     });
 
-    RemSleepRest.addEventListener('click', () => {
+    RemSleepReset.addEventListener('click', () => {
       RemSleepRemoveModalWindow();
       RemSleepTimeToCountDown = 15 * 60 * 1000;
       RemSleepTimer.textContent = "15:00";
