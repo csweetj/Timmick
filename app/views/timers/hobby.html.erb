@@ -1,0 +1,54 @@
+<div class="container px-5 py-24 mx-auto flex flex-wrap flex-col">
+  <!-- タブメニューー -->
+  <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row cursor-pointer">
+    <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+      <a class="text-s font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-purple-600 bg-white hover:bg-purple-600 hover:text-white" id="GameMenu">ゲーム</a>
+    </li>
+    <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+      <a class="text-s font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-pink-600 bg-white hover:bg-pink-600 hover:text-white" id="HobbyMenu">趣味</a>
+    </li>
+  </ul>
+  
+  <!-- ゲームタイマー -->
+  <section class="bg-purple-600 border rounded hidden" id="Game">
+    <!-- タイマー -->
+    <div class="max-w-2xl text-6xl text-center m-auto p-10">
+      <div id="GameTimer">60:00</div>
+      <div id="GameStart" class="btn btn-default">Start</div>
+      <div id="GameReset" class="btn btn-default hidden"></div>
+    </div>   
+    <!-- モーダルウィンドウ -->
+    <div class="text-center m-auto p-10">
+      <div id="GameOpen"></div>
+      <div id="GameMask" class="fixed bg-gray-500 bg-opacity-75 inset-0 hidden z-0"></div>
+      <section id="GameModal" class="bg-white w-1/4 absolute border rounded-lg p-10 inset-x-0 top-1/4 m-auto hidden">
+        <p class="">時間があっという間でした</p>
+        <p id="GameRest" class="btn btn-default mt-4">目を休憩する</p>
+        <p id="GameKeep" class="btn btn-default mt-4">今ちょうどいいところ</p>
+      </section>   
+    </div> 
+  </section>
+  
+  <!-- 趣味タイマー -->
+  <section class="bg-pink-600 border rounded hidden" id="Hobby">
+    <!-- タイマー -->
+    <div class="max-w-2xl text-6xl text-center m-auto p-10 ">
+    <div id="HobbyTimer">30:00</div>
+    <div id="HobbyStart" class="btn btn-default">Start</div>
+    <div id="HobbyReset" class="btn btn-default hidden"></div>
+    </div>
+    <!-- モーダルウィンドウ -->
+    <div class="text-center m-auto p-10">
+      <div id="HobbyOpen"></div>
+      <div id="HobbyMask" class="fixed bg-gray-500 bg-opacity-75 inset-0 hidden z-0"></div>
+      <section id="HobbyModal" class="bg-white w-1/4 absolute border rounded-lg p-10 inset-x-0 top-1/4 m-auto hidden">
+        <p class="">時間があっという間でした</p>
+        <p id="HobbyRest" class="btn btn-default mt-4">気分転換する</p>
+        <p id="HobbyKeep" class="btn btn-default mt-4">今ちょうどいいところ</p>
+      </section>   
+    </div>     
+  </section>
+</div>
+
+
+

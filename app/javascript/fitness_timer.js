@@ -48,10 +48,10 @@ if (document.URL.match( /fitness/ )) {
           timeLeft = 0;
           HiitTimeToCountDown = 0;
           HiitUpdateTimer(timeLeft);
-          if (HiitReset.classList.contains('active')) {
+          if (HiitRest.classList.contains('active')) {
             document.getElementById('HiitKeep').click();
           } else {
-            document.getElementById('HiitReset').click();
+            document.getElementById('HiitRest').click();
           }
           return;
         }
@@ -141,21 +141,21 @@ if (document.URL.match( /fitness/ )) {
    
     //モーダルウィンドウ 
     //HIIT
-    const HiitReset = document.getElementById('HiitReset');
+    const HiitRest = document.getElementById('HiitRest');
     const HiitKeep = document.getElementById('HiitKeep');
 
-    HiitReset.addEventListener('click', () => {
+    HiitRest.addEventListener('click', () => {
       HiitTimeToCountDown = 10 * 1000;
       HiitTimer.textContent = "00:10";
       document.getElementById('HiitStart').click();
-      HiitReset.classList.add('active');
+      HiitRest.classList.add('active');
     });
 
     HiitKeep.addEventListener('click', () => {
       HiitTimeToCountDown = 30 * 1000;
       HiitTimer.textContent = "00:30";
       document.getElementById('HiitStart').click();
-      HiitReset.classList.remove('active');
+      HiitRest.classList.remove('active');
     });
 
     //ストレッチ

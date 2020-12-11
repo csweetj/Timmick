@@ -129,7 +129,7 @@ if (document.URL.match( /relax/ )) {
   //    updateTimer(timeToCountDown);
   //  });
    
-    // reset.addEventListener('click', () => {
+    // Reset.addEventListener('click', () => {
     //   timeToCountDown = 25 * 60 * 1000;
     //   updateTimer(timeToCountDown);
     // });
@@ -138,7 +138,7 @@ if (document.URL.match( /relax/ )) {
     //モーダルウィンドウ 
     //ボックス呼吸法
     const BoxBreathingOpen = document.getElementById('BoxBreathingOpen');
-    const BoxBreathingReset = document.getElementById('BoxBreathingReset');
+    const BoxBreathingRest = document.getElementById('BoxBreathingRest');
     const BoxBreathingKeep = document.getElementById('BoxBreathingKeep');
     const BoxBreathingModal = document.getElementById('BoxBreathingModal');
     const BoxBreathingMask = document.getElementById('BoxBreathingMask');
@@ -154,7 +154,7 @@ if (document.URL.match( /relax/ )) {
       document.getElementById('BoxBreathingStart').click();
     });
 
-    BoxBreathingReset.addEventListener('click', () => {
+    BoxBreathingRest.addEventListener('click', () => {
       BoxBreathingRemoveModalWindow();
       BoxBreathingTimeToCountDown = 4 * 1000;
       document.getElementById('BoxBreathingStart').click();
@@ -174,7 +174,7 @@ if (document.URL.match( /relax/ )) {
 
     //レム仮眠・昼寝
     const RemSleepOpen = document.getElementById('RemSleepOpen');
-    const RemSleepReset = document.getElementById('RemSleepReset');
+    const RemSleepRest = document.getElementById('RemSleepRest');
     const RemSleepKeep = document.getElementById('RemSleepKeep');
     const RemSleepModal = document.getElementById('RemSleepModal');
     const RemSleepMask = document.getElementById('RemSleepMask');
@@ -189,7 +189,7 @@ if (document.URL.match( /relax/ )) {
       RemSleepModal.classList.remove('hidden');
     });
 
-    RemSleepReset.addEventListener('click', () => {
+    RemSleepRest.addEventListener('click', () => {
       RemSleepRemoveModalWindow();
       RemSleepTimeToCountDown = 15 * 60 * 1000;
       RemSleepTimer.textContent = "15:00";

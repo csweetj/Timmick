@@ -129,7 +129,7 @@ if (document.URL.match( /study/ )) {
   //    updateTimer(timeToCountDown);
   //  });
    
-    // reset.addEventListener('click', () => {
+    // Reset.addEventListener('click', () => {
     //   timeToCountDown = 25 * 60 * 1000;
     //   updateTimer(timeToCountDown);
     // });
@@ -138,7 +138,7 @@ if (document.URL.match( /study/ )) {
     //モーダルウィンドウ 
     //ポモドーロ テクニック
     const PomodoroOpen = document.getElementById('PomodoroOpen');
-    const PomodoroReset = document.getElementById('PomodoroReset');
+    const PomodoroRest = document.getElementById('PomodoroRest');
     const PomodoroKeep = document.getElementById('PomodoroKeep');
     const PomodoroModal = document.getElementById('PomodoroModal');
     const PomodoroMask = document.getElementById('PomodoroMask');
@@ -153,7 +153,7 @@ if (document.URL.match( /study/ )) {
       PomodoroModal.classList.remove('hidden');
     });
 
-    PomodoroReset.addEventListener('click', () => {
+    PomodoroRest.addEventListener('click', () => {
       PomodoroRemoveModalWindow();
       PomodoroTimeToCountDown = 5 * 60 * 1000;
       document.getElementById('PomodoroStart').click();
@@ -169,11 +169,12 @@ if (document.URL.match( /study/ )) {
       PomodoroRemoveModalWindow();
       PomodoroTimeToCountDown = 25 * 60 * 1000;
       PomodoroTimer.textContent = "25:00";
+      StudentMenu.classList.remove('pointer-events-none', 'opacity-50');
     });
 
-    //学生気分
+    //学生生活
     const StudentOpen = document.getElementById('StudentOpen');
-    const StudentReset = document.getElementById('StudentReset');
+    const StudentRest = document.getElementById('StudentRest');
     const StudentKeep = document.getElementById('StudentKeep');
     const StudentModal = document.getElementById('StudentModal');
     const StudentMask = document.getElementById('StudentMask');
@@ -188,7 +189,7 @@ if (document.URL.match( /study/ )) {
       StudentModal.classList.remove('hidden');
     });
 
-    StudentReset.addEventListener('click', () => {
+    StudentRest.addEventListener('click', () => {
       StudentRemoveModalWindow();
       StudentTimeToCountDown = 10 * 60 * 1000;
       document.getElementById('StudentStart').click();
@@ -204,6 +205,7 @@ if (document.URL.match( /study/ )) {
       StudentRemoveModalWindow();
       StudentTimeToCountDown = 50 * 60 * 1000;
       StudentTimer.textContent = "50:00";
+      PomodoroMenu.classList.remove('pointer-events-none', 'opacity-50');
     });
 
 

@@ -8,6 +8,6 @@ class TimersController < ApplicationController
   def fitness
   end
   
-  def game
+  def hobby
   end
 end

@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get "timers/study" => "timers#study"
   get "timers/relax" => "timers#relax"
   get "timers/fitness" => "timers#fitness"
-  get "timers/game" => "timers#game"
+  get "timers/hobby" => "timers#hobby"
 end
