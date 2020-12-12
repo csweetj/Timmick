@@ -8,11 +8,11 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
-//タイマー機能
-require("../study_timer")
-require("../relax_timer")
-require("../fitness_timer")
-require("../hobby_timer")
+//タイマー関連
+require("../Timers/study_timer")
+require("../Timers/relax_timer")
+require("../Timers/fitness_timer")
+require("../Timers/hobby_timer")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

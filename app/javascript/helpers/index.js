@@ -1,4 +1,4 @@
-//指定したHTMLの要素の属性を取得
+//指定したHTML要素の属性を取得
 export function getMetaValue(name) {
   const element = findElement(document.head, `meta[name="${name}"]`);
   if (element) {
