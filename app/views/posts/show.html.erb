@@ -6,7 +6,7 @@
     </a>
     <span class="float-right text-sm"><%= @post.created_at.strftime('%Y/%m/%d')%></span>
     <%= link_to @post do %>
-    <div class="flex w-1/4 ">
+    <div class="flex w-1/4 lg:h-48 md:h-36 object-cover object-center">
       <% @post.feature_images.each do |image| %>
         <%= image_tag image, class:"p-1" %>
       <% end %>
