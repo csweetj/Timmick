@@ -82,12 +82,20 @@ if (document.URL.match( /study/ )) {
         StudentMenu.classList.add('pointer-events-none', 'opacity-50');
         startTime = Date.now();
         PomodoroCountDown();
+        if (PomodoroTimeToCountDown === 25 * 60 * 1000) {
+          PomodoroProgressing.animate(1, {duration: 25 * 60 * 1000});
+        } else if (PomodoroTimeToCountDown === 5 * 60 * 1000) {
+          PomodoroProgressing.animate(0, {duration: 5 * 60 * 1000});
+        } else {
+          PomodoroProgressing.resume();
+        }
       } else {
         isRunning = false;
         PomodoroStart.textContent = 'Start';
         StudentMenu.classList.remove('pointer-events-none', 'opacity-50');
         PomodoroTimeToCountDown = timeLeft;
         clearTimeout(timerId);
+        PomodoroProgressing.pause();
       }
     });
 
@@ -98,12 +106,20 @@ if (document.URL.match( /study/ )) {
         PomodoroMenu.classList.add('pointer-events-none', 'opacity-50');
         startTime = Date.now();
         StudentCountDown();
+        if (StudentTimeToCountDown === 50 * 60 * 1000) {
+          StudentProgressing.animate(1, {duration: 50 * 60 * 1000});
+        } else if (StudentTimeToCountDown === 10 * 60 * 1000) {
+          StudentProgressing.animate(0, {duration: 10 * 60 * 1000});
+        } else {
+          StudentProgressing.resume();
+        }
       } else {
         isRunning = false;
         StudentStart.textContent = 'Start';
         PomodoroMenu.classList.remove('pointer-events-none', 'opacity-50');
         StudentTimeToCountDown = timeLeft;
         clearTimeout(timerId);
+        StudentProgressing.pause();
       }
     });
    
@@ -156,18 +172,21 @@ if (document.URL.match( /study/ )) {
     PomodoroRest.addEventListener('click', () => {
       PomodoroRemoveModalWindow();
       PomodoroTimeToCountDown = 5 * 60 * 1000;
+      PomodoroProgressing.set(1);
       document.getElementById('PomodoroStart').click();
     });
 
     PomodoroKeep.addEventListener('click', () => {
       PomodoroRemoveModalWindow();
       PomodoroTimeToCountDown = 25 * 60 * 1000;
+      PomodoroProgressing.set(0);
       document.getElementById('PomodoroStart').click();
     });
 
     PomodoroMask.addEventListener('click', () => {
       PomodoroRemoveModalWindow();
       PomodoroTimeToCountDown = 25 * 60 * 1000;
+      PomodoroProgressing.set(0);
       PomodoroTimer.textContent = "25:00";
       StudentMenu.classList.remove('pointer-events-none', 'opacity-50');
     });
@@ -192,18 +211,21 @@ if (document.URL.match( /study/ )) {
     StudentRest.addEventListener('click', () => {
       StudentRemoveModalWindow();
       StudentTimeToCountDown = 10 * 60 * 1000;
+      StudentProgressing.set(1);
       document.getElementById('StudentStart').click();
     });
 
     StudentKeep.addEventListener('click', () => {
       StudentRemoveModalWindow();
       StudentTimeToCountDown = 50 * 60 * 1000;
+      StudentProgressing.set(0);
       document.getElementById('StudentStart').click();
     });
 
     StudentMask.addEventListener('click', () => {
       StudentRemoveModalWindow();
-      StudentTimeToCountDown = 50 * 60 * 1000;
+      StudentTimeToCountDown = 5 * 60 * 1000;
+      StudentProgressing.set(0);
       StudentTimer.textContent = "50:00";
       PomodoroMenu.classList.remove('pointer-events-none', 'opacity-50');
     });
@@ -236,6 +258,25 @@ if (document.URL.match( /study/ )) {
       StudentMenu.classList.remove('text-blue-400');
       StudentMenu.classList.add('bg-blue-400');
       StudentMenu.classList.add('text-white');
+    });
+
+    //プログレスバー
+    const PomodoroProgressing = new ProgressBar.Line(PomodoroBar, {
+      strokeWidth: 4,
+      easing: 'linear',
+      color: '#FFEA82',
+      trailColor: '#eee',
+      trailWidth: 1,
+      svgStyle: {width: '100%', height: '100%'}
+    });
+    
+    const StudentProgressing = new ProgressBar.Line(StudentBar, {
+      strokeWidth: 4,
+      easing: 'linear',
+      color: '#FFEA82',
+      trailColor: '#eee',
+      trailWidth: 1,
+      svgStyle: {width: '100%', height: '100%'}
     });
   }
   
