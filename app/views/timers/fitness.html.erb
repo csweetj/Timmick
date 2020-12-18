@@ -1,0 +1,45 @@
+<div class="container px-5 py-24 mx-auto flex flex-wrap flex-col">
+  <!-- タブメニューー -->
+  <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row cursor-pointer">
+    <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+      <a class="text-s font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-red-500 bg-white hover:bg-red-500 hover:text-white" id="HiitMenu">HIITトレーニング</a>
+    </li>
+    <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+      <a class="text-s font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-yellow-500 bg-white hover:bg-yellow-500 hover:text-white" id="StretchMenu">ストレッチ・ヨガ</a>
+    </li>
+  </ul>
+  
+  <!-- HIITタイマー -->
+  <section class="bg-red-500 border rounded hidden h-auto" id="Hiit">
+    <!-- タイマー -->
+    <div class="m-auto w-1/2 h-4" id="HiitBar"></div>
+    <div class="max-w-2xl text-6xl text-center m-auto p-10">
+      <div id="HiitTimer">00:30</div>
+      <div id="HiitStart" class="btn btn-default">Start</div>
+      <div id="HiitReset" class="btn btn-default hidden"></div>
+    </div>   
+    <!-- モーダルウィンドウ -->
+    <div class="text-center m-auto p-10">
+      <div id="HiitOpen"></div>
+      <p id="HiitRest"></p>
+      <p id="HiitKeep"></p>
+    </div> 
+  </section>
+  
+  <!-- ストレッチタイマー -->
+  <section class="bg-yellow-500 border rounded hidden" id="Stretch">
+    <!-- タイマー -->
+    <div class="m-auto w-1/2 h-4" id="StretchBar"></div>
+    <div class="max-w-2xl text-6xl text-center m-auto p-10">
+    <div id="StretchTimer">00:20</div>
+    <div id="StretchStart" class="btn btn-default">Start</div>
+    <div id="StretchReset" class="btn btn-default hidden"></div>
+    </div>
+    <!-- モーダルウィンドウ -->
+    <div class="text-center m-auto p-10">
+      <div id="StretchOpen"></div>
+      <p id="StretchRest"></p>
+      <p id="StretchKeep"></p>
+    </div>     
+  </section>
+</div>

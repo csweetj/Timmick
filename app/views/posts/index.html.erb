@@ -1,33 +1,126 @@
 <div class="max-w-6xl m-auto">
+  <!-- タイトル -->
   <div class="flex items-center justify-between pb-4 mb-4 border-b">
-    <h1 class="text-xl font-bold mb-0 uppercase text-gray-500">Posts</h1>
-    <%= link_to "新規投稿", new_post_path, class: "btn btn-default" if user_signed_in? %>
+    <h1 class="text-xl font-bold mb-0 text-gray-500">これからの予定は？ </h1>
   </div>
 
-  <% @posts.each do |post| %>
-  <article class="border rounded-lg lg:w-1/3 w-full">
-    <%= link_to post do %>
-      <div class ="flex">
-        <%= image_tag post.feature_images[0].variant(resize: '250x300') %>
-      </div>
-    <% end %>
-  
+  <!-- 予定 -->
+  <section class="flex flex-wrap">
+    <!-- 勉学 -->
+    <div class="p-1 md:w-1/2 sm:w-full">
+        <div class="shadow-lg group container rounded-md flex justify-center items-center mx-auto study">
+            <div class="w-full image-cover rounded-t-md" >
+              <div class="opacity-0 group-hover:opacity-100 text-center my-24">
+                <span class="text-white tracking-wider leading-relaxed font-sans">勉学</span> 
+                <div class="pt-4">
+                  <%= link_to  "Learn more", timers_study_path, class:"rounded-lg p-2 bg-white text-gray-700 font-bold text-lg" %>  
+                </div>
+              </div>
+            </div>
+        </div>  
+    </div>
 
-      <div class="p-6">
-        <h1 class="text-2xl font-bold"><%= link_to post.title, post %></h1>
-
-        <div class="leading-normal text-lg">
-          <%= post.body %>
-        </div>
-
-        <% if user_signed_in? && current_user.id == post.user_id %>
-          <div class="my-4">
-            <%= link_to '編集', edit_post_path(post), class: "btn btn-default" %>
-            <%= link_to '削除', post, method: :delete, data: { confirm: 'ほんとに削除しますか？' }, class: "btn btn-default" %>
+    <!-- リラックス -->
+    <div class="p-1 md:w-1/2 sm:w-full">
+        <div class="shadow-lg group container rounded-md flex justify-center items-center mx-auto relax">
+            <div class="w-full image-cover rounded-t-md" >
+              <div class="opacity-0 group-hover:opacity-100 text-center my-24">
+                <span class="text-white tracking-wider leading-relaxed font-sans">リラックス</span> 
+                <div class="pt-4">
+                  <%= link_to  "Learn more", timers_relax_path, class:"rounded-lg p-2 bg-white text-gray-700 font-bold text-lg" %>
+                </div>
+              </div>
           </div>
-        <% end %>
-      </div>
-    </article>
-    <% end %>
-  </div>
+        </div>  
+    </div>
+
+    <!-- フィットネス -->
+    <div class="p-1 md:w-1/2 sm:w-full">
+        <div class="shadow-lg group container rounded-md flex justify-center items-center mx-auto fitness">
+            <div  class="w-full image-cover rounded-t-md" >
+              <div class="opacity-0 group-hover:opacity-100 text-center my-24">
+                <span class="text-white tracking-wider leading-relaxed font-sans">フィットネス</span> 
+                <div class="pt-4">
+                  <%= link_to  "Learn more", timers_fitness_path, class:"rounded-lg p-2 bg-white text-gray-700 font-bold text-lg" %>
+                </div>
+              </div>
+          </div>
+        </div>  
+    </div>
+
+    <!-- 趣味 -->
+    <div class="p-1 md:w-1/2 sm:w-full">
+        <div class="shadow-lg group container rounded-md flex justify-center items-center mx-auto hobby">
+            <div class="w-full image-cover rounded-t-md" >
+              <div class="opacity-0 group-hover:opacity-100 text-center my-24">
+                <span class="text-white tracking-wider leading-relaxed font-sans">趣味</span> 
+                <div class="pt-4">
+                   <%= link_to  "Learn more", timers_hobby_path, class:"rounded-lg p-2 bg-white text-gray-700 font-bold text-lg" %>
+                </div>
+              </div>
+          </div>
+        </div>  
+    </div>  
+  </section>
+  
+  <!-- 投稿一覧テンプレート -->
+  <%= render  "post" %>
 </div>
+
+
+<style>
+  .study{
+  background-image:url('/assets/study.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  }
+  .study:hover{
+    background-image:
+    linear-gradient(to bottom right, rgba(0,0,70,0.8), rgba(28,181,224,0.8)),
+    url('/assets/study.jpg');
+  }
+  
+  .relax{
+  background-image:url('/assets/relax.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  }
+  .relax:hover{
+  background-image:
+  linear-gradient(to bottom right,
+  rgba(17,153,142,0.8), rgba(56,239,125,0.8) ),
+  url('/assets/relax.jpg');
+  }
+  
+  .fitness{
+  background-image:url('/assets/fitness.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  }
+  .fitness:hover{
+  background-image:
+  linear-gradient(to bottom right,
+  rgba(241,39,17,0.8), rgba(245,175,25,0.8) ),
+  url('/assets/fitness.jpg');
+  }
+  
+  .hobby{
+  background-image:url('/assets/hobby.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  }
+  .hobby:hover{
+  background-image:
+  linear-gradient(to bottom right,
+  rgba(3,0,30,0.8), rgba(115,3,192,0.8), rgba(236,56,188,0.8), rgba(253,239,249,0.8) ),
+  url('/assets/hobby.jpg');
+  }
+
+  .image-cover  {
+  height:300px;
+  }
+</style>

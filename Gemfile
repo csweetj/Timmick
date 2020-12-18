@@ -56,14 +56,18 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
 # ユーザー管理
 gem 'devise'
+
 # 開発画面
 gem 'awesome_print', '~> 1.8'
 gem 'better_errors', '~> 2.9', '>= 2.9.1'
+
 # カテゴリ
 gem 'active_hash'
 gem 'pry-rails'
-#画像処理
-gem 'mini_magick'
+
+# 画像処理
 gem 'image_processing', '~> 1.2'
+gem 'mini_magick'

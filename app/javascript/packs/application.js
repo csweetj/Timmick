@@ -8,6 +8,12 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
+//タイマー関連
+require("../Timers/study_timer")
+require("../Timers/relax_timer")
+require("../Timers/fitness_timer")
+require("../Timers/hobby_timer")
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
