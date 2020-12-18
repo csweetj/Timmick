@@ -82,12 +82,20 @@ if (document.URL.match( /hobby/ )) {
         HobbyMenu.classList.add('pointer-events-none', 'opacity-50');
         startTime = Date.now();
         GameCountDown();
+        if (GameTimeToCountDown === 60 * 60 * 1000) {
+          GameProgressing.animate(1, {duration: 60 * 60 * 1000});
+        } else if (GameTimeToCountDown === 10 * 60 * 1000) {
+          GameProgressing.animate(0, {duration: 10 * 60 * 1000});
+        } else {
+          GameProgressing.resume();
+        }
       } else {
         isRunning = false;
         GameStart.textContent = 'Start';
         HobbyMenu.classList.remove('pointer-events-none', 'opacity-50');
         GameTimeToCountDown = timeLeft;
         clearTimeout(timerId);
+        GameProgressing.pause();
       }
     });
 
@@ -98,12 +106,20 @@ if (document.URL.match( /hobby/ )) {
         GameMenu.classList.add('pointer-events-none', 'opacity-50');
         startTime = Date.now();
         HobbyCountDown();
+        if (HobbyTimeToCountDown === 30 * 60 * 1000) {
+          HobbyProgressing.animate(1, {duration: 30 * 60 * 1000});
+        } else if (HobbyTimeToCountDown === 5 * 60 * 1000) {
+          HobbyProgressing.animate(0, {duration: 5 * 60 * 1000});
+        } else {
+          HobbyProgressing.resume();
+        }
       } else {
         isRunning = false;
         HobbyStart.textContent = 'Start';
         GameMenu.classList.remove('pointer-events-none', 'opacity-50');
         HobbyTimeToCountDown = timeLeft;
         clearTimeout(timerId);
+        HobbyProgressing.pause();
       }
     });
    
@@ -155,18 +171,21 @@ if (document.URL.match( /hobby/ )) {
 
     GameRest.addEventListener('click', () => {
       GameRemoveModalWindow();
+      GameProgressing.set(1);
       GameTimeToCountDown = 10 * 60 * 1000;
       document.getElementById('GameStart').click();
     });
 
     GameKeep.addEventListener('click', () => {
       GameRemoveModalWindow();
+      GameProgressing.set(0);
       GameTimeToCountDown = 60 * 60 * 1000;
       document.getElementById('GameStart').click();
     });
 
     GameMask.addEventListener('click', () => {
       GameRemoveModalWindow();
+      GameProgressing.set(0);
       GameTimeToCountDown = 60 * 60 * 1000;
       GameTimer.textContent = "60:00";
       HobbyMenu.classList.remove('pointer-events-none', 'opacity-50');
@@ -191,18 +210,21 @@ if (document.URL.match( /hobby/ )) {
 
     HobbyRest.addEventListener('click', () => {
       HobbyRemoveModalWindow();
+      HobbyProgressing.set(1);
       HobbyTimeToCountDown = 5 * 60 * 1000;
       document.getElementById('HobbyStart').click();
     });
 
     HobbyKeep.addEventListener('click', () => {
       HobbyRemoveModalWindow();
+      HobbyProgressing.set(0);
       HobbyTimeToCountDown = 30 * 60 * 1000;
       document.getElementById('HobbyStart').click();
     });
 
     HobbyMask.addEventListener('click', () => {
       HobbyRemoveModalWindow();
+      HobbyProgressing.set(0);
       HobbyTimeToCountDown = 30 * 60 * 1000;
       HobbyTimer.textContent = "30:00";
       GameMenu.classList.remove('pointer-events-none', 'opacity-50');
@@ -236,6 +258,25 @@ if (document.URL.match( /hobby/ )) {
       HobbyMenu.classList.remove('text-pink-600');
       HobbyMenu.classList.add('bg-pink-600');
       HobbyMenu.classList.add('text-white');
+    });
+
+        //プログレスバー
+    const GameProgressing = new ProgressBar.Line(GameBar, {
+      strokeWidth: 4,
+      easing: 'linear',
+      color: '#FFEA82',
+      trailColor: '#eee',
+      trailWidth: 1,
+      svgStyle: {width: '100%', height: '100%'}
+    });
+    
+    const HobbyProgressing = new ProgressBar.Line(HobbyBar, {
+      strokeWidth: 4,
+      easing: 'linear',
+      color: '#FFEA82',
+      trailColor: '#eee',
+      trailWidth: 1,
+      svgStyle: {width: '100%', height: '100%'}
     });
   }
   

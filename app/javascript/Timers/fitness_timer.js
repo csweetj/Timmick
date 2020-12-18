@@ -13,6 +13,8 @@ if (document.URL.match( /fitness/ )) {
     let StretchTimeToCountDown = 20 * 1000;
     let timerId;
     let isRunning = false;
+    let Pausing = false;
+    let Resting = true;
   
     function HiitUpdateTimer(t) {
       let d = new Date(t);
@@ -48,11 +50,7 @@ if (document.URL.match( /fitness/ )) {
           timeLeft = 0;
           HiitTimeToCountDown = 0;
           HiitUpdateTimer(timeLeft);
-          if (HiitRest.classList.contains('active')) {
-            document.getElementById('HiitKeep').click();
-          } else {
-            document.getElementById('HiitRest').click();
-          }
+          document.getElementById('HiitOpen').click();
           return;
         }
         HiitUpdateTimer(timeLeft);
@@ -86,12 +84,20 @@ if (document.URL.match( /fitness/ )) {
         StretchMenu.classList.add('pointer-events-none', 'opacity-50');
         startTime = Date.now();
         HiitCountDown();
+        if (HiitTimeToCountDown === 30  * 1000) {
+          HiitProgressing.animate(1, {duration: 30 * 1000});
+        } else if (HiitTimeToCountDown === 10  * 1000) {
+          HiitProgressing.animate(0, {duration: 10 * 1000});
+        } else {
+          HiitProgressing.resume();
+        }
       } else {
         isRunning = false;
         HiitStart.textContent = 'Start';
         StretchMenu.classList.remove('pointer-events-none', 'opacity-50');
         HiitTimeToCountDown = timeLeft;
         clearTimeout(timerId);
+        HiitProgressing.pause();
       }
     });
 
@@ -102,12 +108,21 @@ if (document.URL.match( /fitness/ )) {
         HiitMenu.classList.add('pointer-events-none', 'opacity-50');
         startTime = Date.now();
         StretchCountDown();
+        if (Resting === true && Pausing === false) {
+          StretchProgressing.animate(1, {duration: 20 * 1000});
+        } else if (Resting === false && Pausing === false) {
+          StretchProgressing.animate(0, {duration: 20 * 1000});
+        } else if (Pausing === true) {
+          StretchProgressing.resume();
+        }
       } else {
         isRunning = false;
+        Pausing = true;
         StretchStart.textContent = 'Start';
         HiitMenu.classList.remove('pointer-events-none', 'opacity-50');
         StretchTimeToCountDown = timeLeft;
         clearTimeout(timerId);
+        StretchProgressing.pause();
       }
     });
    
@@ -141,10 +156,20 @@ if (document.URL.match( /fitness/ )) {
    
     //モーダルウィンドウ 
     //HIIT
+    const HiitOpen = document.getElementById('HiitOpen');
     const HiitRest = document.getElementById('HiitRest');
     const HiitKeep = document.getElementById('HiitKeep');
 
+    HiitOpen.addEventListener('click', () => {
+      if (HiitRest.classList.contains('active')) {
+        document.getElementById('HiitKeep').click();
+      } else {
+        document.getElementById('HiitRest').click();
+      }
+    });
+
     HiitRest.addEventListener('click', () => {
+      HiitProgressing.set(1);
       HiitTimeToCountDown = 10 * 1000;
       HiitTimer.textContent = "00:10";
       document.getElementById('HiitStart').click();
@@ -152,6 +177,7 @@ if (document.URL.match( /fitness/ )) {
     });
 
     HiitKeep.addEventListener('click', () => {
+      HiitProgressing.set(0);
       HiitTimeToCountDown = 30 * 1000;
       HiitTimer.textContent = "00:30";
       document.getElementById('HiitStart').click();
@@ -160,12 +186,32 @@ if (document.URL.match( /fitness/ )) {
 
     //ストレッチ
     const StretchOpen = document.getElementById('StretchOpen');
+    const StretchRest = document.getElementById('StretchRest');
+    const StretchKeep = document.getElementById('StretchKeep');
 
     StretchOpen.addEventListener('click', () => {
-      StretchTimeToCountDown = 20 * 1000;
-      StretchTimer.textContent = "00:20";
-      document.getElementById('StretchStart').click();
+      if (Resting === true) {
+        document.getElementById('StretchRest').click();
+      } else {
+        document.getElementById('StretchKeep').click();
+      }
     });
+
+    StretchKeep.addEventListener('click', () => {
+      Pausing = false;
+      Resting = true;
+      StretchTimeToCountDown = 20 * 1000;
+      StretchProgressing.set(0);
+      document.getElementById('StretchStart').click();
+    })
+    
+    StretchRest.addEventListener('click', () => {
+      Pausing = false;
+      Resting = false;
+      StretchTimeToCountDown = 20 * 1000;
+      StretchProgressing.set(1);
+      document.getElementById('StretchStart').click();
+    })
 
     //タブメニュー
     const HiitMenu = document.getElementById('HiitMenu');
@@ -193,6 +239,27 @@ if (document.URL.match( /fitness/ )) {
       StretchMenu.classList.remove('text-yellow-500');
       StretchMenu.classList.add('bg-yellow-500');
       StretchMenu.classList.add('text-white');
+    });
+
+    //プログレスバー
+    const HiitProgressing = new ProgressBar.SemiCircle(HiitBar, {
+      strokeWidth: 1.5,
+      easing: 'linear',
+      duration: 1400,
+      color: '#FFEA82',
+      trailColor: '#eee',
+      trailWidth: 0.8,
+      svgStyle: {margin: 'auto'}
+    });
+    
+    const StretchProgressing = new ProgressBar.SemiCircle(StretchBar, {
+      strokeWidth: 1.5,
+      easing: 'linear',
+      duration: 1400,
+      color: '#FFEA82',
+      trailColor: '#eee',
+      trailWidth: 0.8,
+      svgStyle: {margin: 'auto'},
     });
   }
   

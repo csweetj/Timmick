@@ -9,10 +9,12 @@ if (document.URL.match( /relax/ )) {
 
     let startTime;
     let timeLeft;
-    let BoxBreathingTimeToCountDown = 4  * 1000;
+    let BoxBreathingTimeToCountDown = 4 * 1000;
     let RemSleepTimeToCountDown = 15 * 60 * 1000;
     let timerId;
     let isRunning = false;
+    let isBreathing = true;
+    let Pausing = false;
   
     function BoxBreathingUpdateTimer(t) {
       let d = new Date(t);
@@ -82,12 +84,21 @@ if (document.URL.match( /relax/ )) {
         RemSleepMenu.classList.add('pointer-events-none', 'opacity-50');
         startTime = Date.now();
         BoxBreathingCountDown();
+        if (isBreathing === true && Pausing === false) {
+          BoxBreathingProgressing.animate(1, {duration: 4 * 1000});
+        } else if (isBreathing === false && Pausing === false) {
+          BoxBreathingProgressing.animate(0, {duration: 4 * 1000});
+        } else if (Pausing === true) {
+          BoxBreathingProgressing.resume();
+        }
       } else {
         isRunning = false;
+        Pausing = true;
         BoxBreathingStart.textContent = 'Start';
         RemSleepMenu.classList.remove('pointer-events-none', 'opacity-50');
         BoxBreathingTimeToCountDown = timeLeft;
         clearTimeout(timerId);
+        BoxBreathingProgressing.pause();
       }
     });
 
@@ -98,12 +109,18 @@ if (document.URL.match( /relax/ )) {
         BoxBreathingMenu.classList.add('pointer-events-none', 'opacity-50');
         startTime = Date.now();
         RemSleepCountDown();
+        if (RemSleepTimeToCountDown === 15 * 60 * 1000) {
+          RemSleepProgressing.animate(1, {duration: 15 * 60 * 1000});
+        } else {
+          RemSleepProgressing.resume();
+        }
       } else {
         isRunning = false;
         RemSleepStart.textContent = 'Start';
         BoxBreathingMenu.classList.remove('pointer-events-none', 'opacity-50');
         RemSleepTimeToCountDown = timeLeft;
         clearTimeout(timerId);
+        RemSleepProgressing.pause();
       }
     });
    
@@ -140,36 +157,30 @@ if (document.URL.match( /relax/ )) {
     const BoxBreathingOpen = document.getElementById('BoxBreathingOpen');
     const BoxBreathingRest = document.getElementById('BoxBreathingRest');
     const BoxBreathingKeep = document.getElementById('BoxBreathingKeep');
-    const BoxBreathingModal = document.getElementById('BoxBreathingModal');
-    const BoxBreathingMask = document.getElementById('BoxBreathingMask');
-    
-    function BoxBreathingRemoveModalWindow() {
-      BoxBreathingMask.classList.add('hidden');
-      BoxBreathingModal.classList.add('hidden');
-    }
+  
 
     BoxBreathingOpen.addEventListener('click', () => {
-      BoxBreathingTimeToCountDown = 4 * 1000;
-      BoxBreathingTimer.textContent = "00:04";
-      document.getElementById('BoxBreathingStart').click();
-    });
-
-    BoxBreathingRest.addEventListener('click', () => {
-      BoxBreathingRemoveModalWindow();
-      BoxBreathingTimeToCountDown = 4 * 1000;
-      document.getElementById('BoxBreathingStart').click();
+      if (isBreathing === true) {
+        document.getElementById('BoxBreathingRest').click();
+      } else {
+        document.getElementById('BoxBreathingKeep').click();
+      }
     });
 
     BoxBreathingKeep.addEventListener('click', () => {
-      BoxBreathingRemoveModalWindow();
+      Pausing = false;
+      isBreathing = true;
       BoxBreathingTimeToCountDown = 4 * 1000;
+      BoxBreathingProgressing.set(0);
       document.getElementById('BoxBreathingStart').click();
     });
-
-    BoxBreathingMask.addEventListener('click', () => {
-      BoxBreathingRemoveModalWindow();
+    
+    BoxBreathingRest.addEventListener('click', () => {
+      Pausing = false;
+      isBreathing = false;
       BoxBreathingTimeToCountDown = 4 * 1000;
-      BoxBreathingTimer.textContent = "00:04";
+      BoxBreathingProgressing.set(1);
+      document.getElementById('BoxBreathingStart').click();
     });
 
     //レム仮眠・昼寝
@@ -192,18 +203,21 @@ if (document.URL.match( /relax/ )) {
     RemSleepRest.addEventListener('click', () => {
       RemSleepRemoveModalWindow();
       RemSleepTimeToCountDown = 15 * 60 * 1000;
+      RemSleepProgressing.set(0);
       RemSleepTimer.textContent = "15:00";
     });
 
     RemSleepKeep.addEventListener('click', () => {
       RemSleepRemoveModalWindow();
       RemSleepTimeToCountDown = 15 * 60 * 1000;
+      RemSleepProgressing.set(0);
       document.getElementById('RemSleepStart').click();
     });
 
     RemSleepMask.addEventListener('click', () => {
       RemSleepRemoveModalWindow();
       RemSleepTimeToCountDown = 15 * 60 * 1000;
+      RemSleepProgressing.set(0);
       RemSleepTimer.textContent = "15:00";
     });
 
@@ -236,6 +250,25 @@ if (document.URL.match( /relax/ )) {
       RemSleepMenu.classList.add('bg-green-400');
       RemSleepMenu.classList.add('text-white');
     });
+
+    //プログレスバー
+    const BoxBreathingProgressing = new ProgressBar.SemiCircle(BoxBreathingBar, {
+      strokeWidth: 1.5,
+      easing: 'linear',
+      color: '#FFEA82',
+      trailColor: '#eee',
+      trailWidth: 0.8,
+      svgStyle: {margin: 'auto'},
+    });
+    
+    const RemSleepProgressing = new ProgressBar.SemiCircle(RemSleepBar, {
+      strokeWidth: 1.5,
+      easing: 'linear',
+      color: '#FFEA82',
+      trailColor: '#eee',
+      trailWidth: 0.8,
+      svgStyle: {margin: 'auto'},
+    });    
   }
   
   window.addEventListener('load', timer)
