@@ -24,3 +24,4 @@ require("../Timers/hobby_timer")
 
 import "controllers"
 import "stylesheets/application"
+import '@fortawesome/fontawesome-free/js/all';
