@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   before_action :set_post, only: %i[show edit update destroy]
 
-  # N+1問題対策
   def index
+    # N+1問題対策
     @posts = Post.includes(:user).order('created_at DESC')
   end
 
@@ -47,6 +47,19 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url, notice: '削除できました。' }
       format.json { head :no_content }
+    end
+  end
+
+  def like
+    post = Post.find(params[:id])
+    if post.liked_by?(current_user)
+      like = current_user.likes.find_by(post_id: post.id)
+      like.destroy
+      render json: post.id
+    else
+      like = current_user.likes.new(post_id: post.id)
+      like.save
+      render json: post.id
     end
   end
 
