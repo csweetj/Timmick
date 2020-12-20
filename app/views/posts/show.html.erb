@@ -16,22 +16,10 @@
 
     <div class="px-4 py-4">
       <h1 class="text-lg font-bold py-4"><%= @post.title %></h1>
-        <p class="leading-normal whitespace-pre-wrap py-4"><%= @post.body %></p>
+      <p class="leading-normal whitespace-pre-wrap py-4"><%= @post.body %></p>
     </div>
     <div class="flex items-center flex-wrap ">
-      <span class="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-base pr-3 py-1 border-r-2 border-gray-300" id="<%= @post.id.to_s %>">
-        <% if @post.liked_by(current_user).present? %>
-          <%= link_to(post_like_path(@post.id, @post.liked_by(current_user)), method: :delete, remote: true, class: "text-pink-500") do %>
-              <i class="fas fa-heart"></i>
-          <% end %>
-          <%= @post.likes.count %>
-        <% else %>
-          <%= link_to(post_likes_path(@post), method: :post, remote: true, class: "text-gray-500") do %>
-              <i class="far fa-heart"></i>
-          <% end %>
-          <%= @post.likes.count %>
-        <% end %>
-      </span>
+      <%= render 'likes/likes', post: @post %>
       <span class="text-gray-600 inline-flex items-center leading-none text-base">
           <i class="far fa-comment"></i>
       </span>

@@ -1,5 +1,5 @@
 <div id="like-link-<%= post.id %>">
-  <span class="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-base pr-3 py-1 border-r-2 border-gray-300">
+  <span class="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-xl pr-3 py-1 border-r-2 border-gray-300">
     <% if current_user.likes.find_by(post_id: post.id) %>
       <%= link_to unlike_path(post.id), method: :delete, remote: true, class: "text-pink-500" do %>
         <i class="fas fa-heart" id="<%= post.id %>"></i>
