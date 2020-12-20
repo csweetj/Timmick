@@ -23,7 +23,7 @@ if (document.URL.match( /study/ )) {
       s = ('0' + s).slice(-2);
       timerString = m + ':' + s; 
       PomodoroTimer.textContent = timerString;
-      document.title = timerString;
+      document.title = `ポモドーロ (${timerString})`;
     }
 
     function StudentUpdateTimer(t) {
@@ -35,7 +35,7 @@ if (document.URL.match( /study/ )) {
       s = ('0' + s).slice(-2);
       timerString = m + ':' + s; 
       StudentTimer.textContent = timerString;
-      document.title = timerString;
+      document.title = `青春？... (${timerString})`;
     }
   
     function PomodoroCountDown() {

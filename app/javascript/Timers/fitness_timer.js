@@ -25,7 +25,7 @@ if (document.URL.match( /fitness/ )) {
       s = ('0' + s).slice(-2);
       timerString = m + ':' + s; 
       HiitTimer.textContent = timerString;
-      document.title = timerString;
+      document.title = `HIIT (${timerString})`;
     }
 
     function StretchUpdateTimer(t) {
@@ -37,7 +37,7 @@ if (document.URL.match( /fitness/ )) {
       s = ('0' + s).slice(-2);
       timerString = m + ':' + s; 
       StretchTimer.textContent = timerString;
-      document.title = timerString;
+      document.title = `ストレッチ・ヨガ (${timerString})`;
     }
   
     function HiitCountDown() {

@@ -25,7 +25,7 @@ if (document.URL.match( /relax/ )) {
       s = ('0' + s).slice(-2);
       timerString = m + ':' + s; 
       BoxBreathingTimer.textContent = timerString;
-      document.title = timerString;
+      document.title = `リラックス (${timerString})`;
     }
 
     function RemSleepUpdateTimer(t) {
@@ -37,7 +37,7 @@ if (document.URL.match( /relax/ )) {
       s = ('0' + s).slice(-2);
       timerString = m + ':' + s; 
       RemSleepTimer.textContent = timerString;
-      document.title = timerString;
+      document.title = `睡眠中zzz (${timerString})`;
     }
   
     function BoxBreathingCountDown() {

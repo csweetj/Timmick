@@ -23,7 +23,7 @@ if (document.URL.match( /hobby/ )) {
       s = ('0' + s).slice(-2);
       timerString = m + ':' + s; 
       GameTimer.textContent = timerString;
-      document.title = timerString;
+      document.title = `ゲーミング (${timerString})`;
     }
 
     function HobbyUpdateTimer(t) {
@@ -35,7 +35,7 @@ if (document.URL.match( /hobby/ )) {
       s = ('0' + s).slice(-2);
       timerString = m + ':' + s; 
       HobbyTimer.textContent = timerString;
-      document.title = timerString;
+      document.title = `趣味NOW (${timerString})`;
     }
   
     function GameCountDown() {
