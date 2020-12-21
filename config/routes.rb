@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :posts do
-    resource :likes, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
   end
   
   #タイマー機能用ルーティング
