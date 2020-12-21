@@ -1,0 +1,20 @@
+<div id="like_<%= post.id %>">
+  <span class="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-xl pr-3 py-1 border-r-2 border-gray-300">
+    <% if user_signed_in? %>
+      <% if Like.find_by(user_id: current_user.id, post_id: post.id)%>
+        <%= link_to post_likes_path(post), method: :delete, remote: true, class: "text-pink-500" do %>
+          <i class="fas fa-heart" id="<%= post.id %>"></i>
+        <% end %>
+        <span class="px-1"><%= post.likes.count %></span>
+      <% else %>
+        <%= link_to post_likes_path(post), method: :post, remote: true, class: "text-gray-500" do %>
+          <i class="far fa-heart" id="<%= post.id %>"></i>
+        <% end %>
+        <span class="px-1"><%= post.likes.count %></span>
+      <% end %>
+    <% else %>
+      <i class="far fa-heart"></i>
+      <span class="px-1"><%= post.likes.count %></span>
+    <% end %>
+  </span>
+</div>
