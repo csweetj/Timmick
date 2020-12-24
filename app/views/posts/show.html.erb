@@ -4,9 +4,9 @@
       <img alt="blog" src="https://dummyimage.com/104x104" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
       <span class="title-font font-medium px-2"><%= @post.user.nickname %></span>
     </a>
-    <span class="float-right text-sm"><%= @post.created_at.strftime('%Y/%m/%d')%></span>
+    <span class="float-right text-sm px-2 py-4 mx-auto"><%= @post.created_at.strftime('%Y/%m/%d')%></span>
     <%= link_to @post do %>
-    <div class="flex w-1/4 lg:h-48 md:h-36 object-cover object-center">
+    <div class="flex w-1/4 lg:h-48 md:h-36 object-contain object-center">
       <% @post.feature_images.each do |image| %>
         <%= image_tag image, class:"p-1" %>
       <% end %>
@@ -15,20 +15,22 @@
 
 
     <div class="px-4 py-4">
-      <h1 class="text-lg font-bold py-4"><%= @post.title %></h1>
-      <p class="leading-normal whitespace-pre-wrap py-4"><%= @post.body %></p>
+      <h2 class="tracking-widest text-xs title-font font-semibold text-indigo-500 mb-1">タグ</h2>
+      <h1 class="title-font text-lg font-bold text-gray-900 mb-3 whitespace-pre-wrap"><%= @post.title %></h1>
+      <p class="leading-relaxed mb-3 whitespace-pre-wrap font-medium"><%= @post.body %></p>
     </div>
     <div class="flex items-center flex-wrap ">
       <%= render 'likes/like', post: @post %>
-      <span class="text-gray-600 inline-flex items-center leading-none text-base">
+      <span class="text-gray-600 inline-flex items-center leading-none text-xl hover:text-green-400">
           <i class="far fa-comment"></i>
       </span>
-      </div>
-
-    <div class="">
       <% if user_signed_in? && current_user.id == @post.user_id %>
-        <%= link_to '編集', edit_post_path(@post), class: "btn btn-default" %>
-        <%= link_to '削除', @post, method: :delete, data: { confirm: 'ほんとに削除しますか？' }, class: "btn btn-default" %>
+        <%= link_to edit_post_path(@post), class: "mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-xl pr-3 py-1 hover:text-green-400", title:"編集" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to @post, method: :delete, data: { confirm: 'ほんとに削除しますか？' }, class: "inline-flex items-center leading-none text-xl hover:text-red-600", title:"削除" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
       <% end %>
     </div>
   </div>

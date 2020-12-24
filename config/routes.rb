@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   root to: 'posts#index'
   devise_for :users
   
-  resources :posts do
-    resources :likes, only: [:create, :destroy]
+  resources :posts, shallow: true do
+    resources :likes, only: %i[create destroy]
+    resources :comments, only: %i[create edit update destroy]
   end
   
   #タイマー機能用ルーティング

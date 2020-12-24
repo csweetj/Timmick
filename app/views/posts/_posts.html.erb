@@ -4,38 +4,46 @@
       <%= link_to "新規投稿", new_post_path, class: "btn btn-default" if user_signed_in? %>
   </div>
 
-    <div class="container px-5 py-5 mx-auto ">
-      <div class="flex flex-wrap -m-4 ">
-        <% @posts.each do |post| %>
-        <div class="p-4 md:w-1/3 border rounded-lg">
-          <a class="inline-flex items-center">
-            <img alt="blog" src="https://dummyimage.com/104x104" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
-            <span class="title-font font-medium px-2"><%= post.user.nickname %></span>
-          </a>
-          <span class="float-right text-sm"><%= post.created_at.strftime('%Y/%m/%d')%></span>
+  <div class="container px-5 py-5 mx-auto">
+    <div class="flex flex-wrap -m-5">
+      <% @posts.each do |post| %>
+        <div class="p-2 md:w-1/3">
+          <div class="h-full overflow-hidden rounded border">
+            <a class="inline-flex items-center px-1 py-1 mx-auto">
+              <img alt="blog" src="https://dummyimage.com/104x104" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+              <span class="title-font font-medium px-2"><%= post.user.nickname %></span>
+            </a>
+            <span class="float-right text-sm px-2 py-4 mx-auto"><%= post.created_at.strftime('%Y/%m/%d')%></span>
 
-          <%= link_to post do %>
-            <div class="h-full overflow-hidden">
-              <% if post.feature_images.present? %>
-                <%= image_tag post.feature_images[0], class:"lg:h-48 md:h-36 w-full object-cover object-center", alt:"blog"%>
-              <% else %>
-                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog">
+        <%= link_to post do %>
+            <% if post.feature_images.present? %>
+              <%= image_tag post.feature_images[0], class:"lg:h-48 md:h-36 w-full object-cover object-center", alt:"blog"%>
+            <% else %>
+              <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog">
+            <% end %>
+        <% end %>
+
+        <div class="p-6">
+          <h2 class="tracking-widest text-xs title-font font-semibold text-indigo-500 mb-1">タグ</h2>
+          <h1 class="title-font text-lg font-bold text-gray-900 mb-3 whitespace-pre-wrap"><%= link_to post.title, post %></h1>
+          <div class="overflow-auto h-20">
+            <p class="leading-relaxed mb-3 whitespace-pre-wrap font-medium"><%= post.body %></p>
+          </div>
+          <div class="flex items-center flex-wrap">
+            <%= render 'likes/like', post: post %>
+            <span class="text-gray-600 inline-flex items-center leading-none text-xl hover:text-green-400">
+              <i class="far fa-comment"></i>
+            </span>
+            <% if user_signed_in? && current_user.id == post.user_id %>
+              <%= link_to edit_post_path(post), class: "mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-xl pr-3 py-1 hover:text-green-400", title:"編集" do %>
+                <i class="fas fa-edit"></i>
               <% end %>
-          <% end %>
-
-            <div class="p-6">
-              <h2 class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">タグ</h2>
-              <h1 class="title-font text-lg font-medium text-gray-900 mb-3 whitespace-pre-wrap"><%= link_to post.title, post %></h1>
-                <div class="overflow-auto h-32">
-                  <p class="leading-relaxed mb-3 whitespace-pre-wrap"><%= post.body %></p>
-                </div>
-              <div class="flex items-center flex-wrap ">
-                <%= render 'likes/like', post: post %>
-                <span class="text-gray-600 inline-flex items-center leading-none text-xl leading-none">
-                  <i class="far fa-comment"></i>
-                </span>
-              </div>
-            </div>
+              <%= link_to post, method: :delete, data: { confirm: 'ほんとに削除しますか？' }, class: "inline-flex items-center leading-none text-xl hover:text-red-600", title:"削除" do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-      </div>
+  </div>
+</div>
         <% end %>
