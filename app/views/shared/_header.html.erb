@@ -14,11 +14,19 @@
       </div>
       <div class="items-center block w-full mt-2 text-center lg:flex lg:flex-row lg:flex-1 lg:mt-0 lg:text-left lg:justify-end">
         <% if user_signed_in? %>
-          <%= link_to "ユーザー編集", edit_user_registration_path, class: "btn btn-default mb-2 lg:mr-2 lg:mb-0 block" %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-default mb-2 lg:mb-0 block" %>
+          <%= link_to edit_user_registration_path, class: "mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-xl pr-3 py-1 hover:text-blue-400", title: "ユーザー編集" do %>
+            <i class="fas fa-user-edit"></i>
+          <% end %>
+          <%= link_to destroy_user_session_path, method: :delete, class:"inline-flex items-center leading-none text-xl hover:text-red-500", title: "ログアウト" do %>
+            <i class="fas fa-sign-out-alt"></i>
+          <% end %>
         <% else %>
-          <%= link_to "ログイン", new_user_session_path, class:"btn btn-default mb-2 lg:mr-2 lg:mb-0 block" %>
-          <%= link_to "ユーザー登録", new_user_registration_path, class:"btn btn-default block" %>
+          <%= link_to new_user_registration_path, class:"mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-xl pr-3 py-1 hover:text-blue-400", title: "ユーザー登録" do %>
+            <i class="fas fa-user-plus"></i>
+          <% end %>
+          <%= link_to new_user_session_path, class:"inline-flex items-center leading-none text-xl hover:text-green-400", title: "ログイン" do %>
+            <i class="fas fa-sign-in-alt"></i>
+          <% end %>
         <% end %>
       </div>
     </div>

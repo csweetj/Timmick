@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "Timers", type: :request do
-
+RSpec.describe 'Timers', type: :request do
 end
