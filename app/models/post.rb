@@ -9,8 +9,4 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many_attached :feature_images
-
-  def liked_by?(user_id)
-    likes.find_by(user_id: user_id)
-  end
 end
