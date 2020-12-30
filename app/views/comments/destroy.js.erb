@@ -1,0 +1,6 @@
+//コメントを削除
+$('#comment-<%= @comment.id %>').remove();
+//コメントを表示
+$("#comments-area").html("<%= j(render 'comments/comments', comments: @comment.post.comments.order('created_at DESC')) %>")
+//コメント状態を更新
+$("#comment-count").html("<%= j(render 'comments/comment', { post: @comment.post }) %>")

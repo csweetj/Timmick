@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     # N+1問題対策
-    @posts = Post.includes(:user, :likes, :feature_images_attachments).order('created_at DESC')
+    @posts = Post.includes(:user, :likes, :comments, :feature_images_attachments).order('created_at DESC')
   end
 
   def show

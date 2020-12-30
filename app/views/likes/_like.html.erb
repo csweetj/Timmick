@@ -1,12 +1,9 @@
 <div id="like_<%= post.id %>">
-  <span class="mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-xl pr-3 py-1 border-r-2 border-gray-300">
+  <span class="mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none pr-3 py-1 border-r-2 border-gray-300">
     <% if user_signed_in? %>
       <% if Like.find_by(user_id: current_user.id, post_id: post.id)%>
         <%= link_to like_path(post_id: post.id, id: post.likes[0].id), method: :delete, remote: true, class:"text-pink-500", title:"いいねを解除" do %>
           <i class="fas fa-heart" id="<%= post.id %>"></i>
-        <% end %>
-        <% if post.likes.size > 0 %>         
-          <span class="px-1"><%= post.likes.size %></span>
         <% end %>
 
       <% else %>
@@ -14,14 +11,14 @@
         <%= link_to post_likes_path(post.id), method: :post, remote: true, class:"text-gray-500 hover:text-pink-500", title:"いいねする" do %>
           <i class="far fa-heart" id="<%= post.id %>"></i>
         <% end %>
-        <% if post.likes.size > 0 %>         
-          <span class="px-1"><%= post.likes.size %></span>
-        <% end %>
       <% end %>
     
     <% else %>
       <i class="far fa-heart"></i>
-      <span class="px-1"><%= post.likes.size %></span>
+    <% end %>
+    
+    <% if post.likes.length > 0 %>
+      <span class="px-1"><%= post.likes.length %></span>
     <% end %>
   </span>
 </div>

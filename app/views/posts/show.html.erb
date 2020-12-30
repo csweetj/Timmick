@@ -19,19 +19,35 @@
       <h1 class="title-font text-lg font-bold text-gray-900 mb-3 whitespace-pre-wrap"><%= @post.title %></h1>
       <p class="leading-relaxed mb-3 whitespace-pre-wrap font-medium"><%= @post.body %></p>
     </div>
-    <div class="flex items-center flex-wrap ">
+    <div class="flex items-center flex-wrap text-xl">
       <%= render 'likes/like', post: @post %>
-      <span class="text-gray-600 inline-flex items-center leading-none text-xl hover:text-green-400">
-          <i class="far fa-comment"></i>
-      </span>
+      <%= render 'comments/comment', post: @post %>
+
       <% if user_signed_in? && current_user.id == @post.user_id %>
-        <%= link_to edit_post_path(@post), class: "mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-xl pr-3 py-1 hover:text-green-400", title:"編集" do %>
+        <%= link_to edit_post_path(@post), class: "mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none pr-3 py-1 hover:text-green-400", title:"編集" do %>
           <i class="fas fa-edit"></i>
         <% end %>
-        <%= link_to @post, method: :delete, data: { confirm: 'ほんとに削除しますか？' }, class: "inline-flex items-center leading-none text-xl hover:text-red-600", title:"削除" do %>
+        <%= link_to @post, method: :delete, data: { confirm: 'ほんとに削除しますか？' }, class: "inline-flex items-center leading-none hover:text-red-600", title:"削除" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       <% end %>
     </div>
   </div>
+  
+  <% if user_signed_in? %>
+    <div class="">
+      <%= form_with(model: [@post, @comment], remote: true) do |form| %>
+        <div class="mt-6">
+          <%= form.text_area :body, class: "input mt-4", placeholder: "(最大140文字まで)", maxlength:'140', rows: "1" %>
+        </div>
+        <div class="mb-6">
+          <%= form.submit "コメントする", class: "btn-default btn" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="flex items-center justify-between pb-4 mb-4 border-b">
+      <h1 class="text-xl font-bold mb-0 text-gray-500">コメント</h1>
+    </div>
+    <%= render 'comments/comments', comments: @comments %>
+  <% end %>
 </div>
