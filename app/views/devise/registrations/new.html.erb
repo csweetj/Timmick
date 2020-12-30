@@ -58,7 +58,7 @@
     <div class="mb-6">
     <%= f.label :性別, class:"relative" %>
       <span class="absolute text-red-600">*</span>
-    <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:""}) %>
+    <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"block"}) %>
     </div>
     
     <div class="mb-6">
