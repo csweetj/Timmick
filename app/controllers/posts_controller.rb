@@ -7,8 +7,9 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user, :likes, :comments, :feature_images_attachments, :taggings).order('created_at DESC')
     @tags = Post.tags_on(:tags).most_used(20)
     # タグ投稿絞り
-    if params[:tag]
-      @posts = Post.tagged_with(params[:tag])
+    if params[:tag_list]
+      @posts = Post.tagged_with(params[:tag_list]).includes(:user, :likes, :comments, :feature_images_attachments, :taggings).order('created_at DESC')
+      @tag = params[:tag_list]
     end
   end
 
