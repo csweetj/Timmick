@@ -20,7 +20,12 @@
   <div class="mb-6">
     <%= form.label :本文（最大140字まで）, class: "relative" %>
       <span class="absolute text-red-600">*</span>
-    <%= form.text_area :body, class: "input", maxlength:'140', rows: '5' %>
+    <%= form.text_area :body, class: "input", maxlength:'140', rows: '5'%>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :タグ（最大２０文字まで）, class: "relative" %>
+    <%= form.text_field :tag_list, class: "input", value: @post.tag_list.join("、"), maxlength:'20', placeholder: "スポーツ、趣味..." %>
   </div>
 
   <div class="mb-6">

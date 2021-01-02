@@ -6,16 +6,18 @@
     </a>
     <span class="float-right text-sm px-2 py-4 mx-auto"><%= @post.created_at.strftime('%Y/%m/%d')%></span>
     <%= link_to @post do %>
-    <div class="flex w-1/4 lg:h-48 md:h-36 object-contain object-center">
-      <% @post.feature_images.each do |image| %>
-        <%= image_tag image, class:"p-1" %>
+      <% if @post.feature_images.present? %>
+        <div class="flex w-1/4 lg:h-48 md:h-36 object-contain object-center">
+          <% @post.feature_images.each do |image| %>
+            <%= image_tag image, class:"p-1" %>
+          <% end %>
+        </div>
       <% end %>
-    </div>
     <% end %>
 
 
     <div class="px-4 py-4">
-      <h2 class="tracking-widest text-xs title-font font-semibold text-indigo-500 mb-1">タグ</h2>
+      <%= render 'tags/tag_list', tag_list: @post.tag_list %>
       <h1 class="title-font text-lg font-bold text-gray-900 mb-3 whitespace-pre-wrap"><%= @post.title %></h1>
       <p class="leading-relaxed mb-3 whitespace-pre-wrap font-medium"><%= @post.body %></p>
     </div>
