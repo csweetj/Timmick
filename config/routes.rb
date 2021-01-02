@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :likes, only: %i[create destroy]
     resources :comments, only: %i[create edit update destroy]
   end
+  resources :tags, only: %i{index}
 
   # タイマー機能用ルーティング
   get 'timers/study' => 'timers#study'

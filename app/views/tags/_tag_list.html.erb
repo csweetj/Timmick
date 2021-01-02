@@ -1,0 +1,9 @@
+<% if tag_list.present? %>
+  <% tag_list.each do |tag| %>
+    <%= link_to posts_path(tag: tag) do %>
+      <span class="tracking-widest text-xs title-font font-semibold text-indigo-500 mb-1 hover:underline"><%= "##{tag}" %></span>
+    <% end %>
+  <% end %>
+<% else %>
+  <div class="tracking-widest text-xs title-font font-semibold text-indigo-500 mb-1">&thinsp;</div>
+<% end %>

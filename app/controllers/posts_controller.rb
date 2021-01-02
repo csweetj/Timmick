@@ -4,7 +4,12 @@ class PostsController < ApplicationController
 
   def index
     # N+1問題対策
-    @posts = Post.includes(:user, :likes, :comments, :feature_images_attachments).order('created_at DESC')
+    @posts = Post.includes(:user, :likes, :comments, :feature_images_attachments, :taggings).order('created_at DESC')
+    @tags = Post.tags_on(:tags).most_used(20)
+    # タグ投稿絞り
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+    end
   end
 
   def show
@@ -60,6 +65,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, feature_images: [])
+    params.require(:post).permit(:title, :body, :tag_list, feature_images: [])
   end
+
 end

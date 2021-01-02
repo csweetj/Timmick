@@ -9,4 +9,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many_attached :feature_images
+  
+  # タグ関連付け
+  acts_as_taggable
 end
