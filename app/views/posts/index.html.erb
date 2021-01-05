@@ -1,6 +1,29 @@
 <div class="max-w-6xl m-auto">
   <!-- タイマーテンプレート -->
   <%= render partial: "timers/timer" %>
-  <%= render partial: 'posts/posts', post: @post %>
+  
+  <div class="flex items-center justify-between py-4 my-4 border-b">
+    <% if params[:tag_list] %>
+      <h1 class="text-xl font-bold mb-0 text-gray-500"><%= "##{@tag}についての投稿" %></h1>
+    <% else %>
+      <h1 class="text-xl font-bold mb-0 text-gray-500">投稿一覧</h1>
+    <% end %>
+    <%= link_to "新規投稿", new_post_path, class: "btn btn-default" if user_signed_in? %>
+  </div>
+
+  <div class="mb-8">
+    <i class="fas fa-tags"></i>
+    <h2 class="inline mr-1">Top 20</h2>
+    <% @tags.each do |tag| %>
+      <%= link_to posts_path(tag_list: tag.name) do %>
+        <span class="inline-block py-1 px-2 border rounded-full text-indigo-500 text-xs font-medium tracking-widest hover:bg-indigo-500 hover:text-white"><%= "#{tag.name}(#{tag.taggings_count})" %></span>
+      <% end %>
+    <% end %>
+    <%= link_to "全てのタグ", tags_path, class: "inline-block py-1 px-2 border rounded-full text-indigo-500 text-xs font-medium tracking-widest hover:bg-indigo-500 hover:text-white" %>
+  </div>
+  
+  <div id='post-pagenate' class="container px-5 py-1 mx-auto">
+    <%= render partial: 'posts/posts', post: @post %>
+  </div>
   
 </div>

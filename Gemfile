@@ -77,3 +77,6 @@ gem 'mini_magick'
 
 # 投稿タグ
 gem 'acts-as-taggable-on', '~> 7.0'
+
+# ページネーション
+gem 'kaminari'
