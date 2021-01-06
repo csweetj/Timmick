@@ -42,5 +42,7 @@
   </div>
 </div>
     <% end %>
-
-<%= link_to_next_page @posts, 'もっと見る', remote: true, class: 'more-link', id: 'more-link' %>
+<div class="post-next">
+  <%= link_to_next_page @posts, '次のページ', class: "next hidden" %>
+  <%= paginate @posts if params[:tag_list] %>
+</div>

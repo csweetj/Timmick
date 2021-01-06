@@ -1,0 +1,4 @@
+$('#comment-list').append("<%= j(render 'comments/comments', comments: @comments) %>")
+$("#more-comment").replaceWith("<%= j(
+  link_to_next_page(@comments, 'もっと見る', remote: true, class: 'more-link', id: 'more-comment')
+) %>");

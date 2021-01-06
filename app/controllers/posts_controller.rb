@@ -4,18 +4,18 @@ class PostsController < ApplicationController
 
   def index
     # N+1問題対策
-    @posts = Post.includes(:user, :likes, :comments, :feature_images_attachments, :taggings).order('created_at DESC').page(params[:page]).without_count.per(1)
+    @posts = Post.includes(:user, :likes, :comments, :feature_images_attachments, :taggings).order('created_at DESC').page(params[:page]).without_count.per(3)
     @tags = Post.tags_on(:tags).most_used(20)
     # タグ投稿絞り
     if params[:tag_list]
-      @posts = Post.tagged_with(params[:tag_list]).includes(:user, :likes, :comments, :feature_images_attachments, :taggings).order('created_at DESC').page(params[:page]).without_count.per(2)
+      @posts = Post.tagged_with(params[:tag_list]).includes(:user, :likes, :comments, :feature_images_attachments, :taggings).order('created_at DESC').page(params[:page]).per(3)
       @tag = params[:tag_list]
     end
   end
 
   def show
     @comment = Comment.new
-    @comments = @post.comments.includes(:user).order('created_at DESC')
+    @comments = @post.comments.includes(:user).order('created_at DESC').page(params[:page]).per(5)
   end
 
   def new

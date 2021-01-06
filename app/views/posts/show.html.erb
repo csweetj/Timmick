@@ -1,5 +1,5 @@
 <div class="max-w-6xl m-auto">
-  <div class="container mx-auto border rounded-lg p-4 ">
+  <div class="container mx-auto border rounded-lg p-4 mb-8">
     <a class="inline-flex items-center">
       <img alt="blog" src="https://dummyimage.com/104x104" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
       <span class="title-font font-medium px-2"><%= @post.user.nickname %></span>
@@ -47,9 +47,12 @@
         </div>
       <% end %>
     </div>
-    <div class="flex items-center justify-between pb-4 mb-4 border-b">
-      <h1 class="text-xl font-bold mb-0 text-gray-500">コメント</h1>
-    </div>
-    <%= render 'comments/comments', comments: @comments %>
   <% end %>
+  <div class="flex items-center justify-between pb-4 mb-4 border-b">
+    <h1 class="text-xl font-bold mb-0 text-gray-500">コメント</h1>
+  </div>
+  <div id="comment-list" class="border rounded-lg p-4">
+    <%= render 'comments/comments', comments: @comments %>
+  </div>
+  <%= link_to_next_page @comments, 'もっと見る', id: 'more-comment', class: 'more-link', remote: true%>
 </div>

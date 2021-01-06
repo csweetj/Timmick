@@ -1,18 +1,16 @@
 <div id="comments-area">
   <% if comments.present? %>
-    <div class="container border rounded-lg p-4 divide-y divide-solid">
+    <div class="container">
       <% comments.each do |comment| %>
         <div id="comment-<%= comment.id %>" class="my-2">
-          <p>
-            <strong><%= comment.user.nickname %>：</strong>
-            <%= comment.body %>
-            <p class="float-right text-sm"><%= comment.created_at.strftime('%Y/%m/%d')%></p>
-          </p>
+          <p class="inline-block font-bold"><%= comment.user.nickname %>：</p>
+          <p class="inline-block"><%= comment.body %></p>
           <% if user_signed_in? && current_user.id == comment.user_id %>
-            <%= link_to comment_path(comment), method: :delete, remote: true, data: { confirm: 'ほんとに削除しますか？' }, class: "hover:text-red-600", title:"コメント削除" do %>
+            <%= link_to comment_path(comment), method: :delete, remote: true, data: { confirm: 'ほんとに削除しますか？' }, class: "hover:text-red-600 inline-block float-right", title:"コメント削除" do %>
               <i class="fas fa-trash-alt"></i>
             <% end %>
           <% end %>
+          <p class="text-xs"><%= comment.created_at.strftime('%Y/%m/%d')%></p>
         </div>
       <% end %>
     </div>

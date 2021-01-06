@@ -1,4 +1,0 @@
-$('#post-pagenate').append("<%= j(render 'posts/posts', object: @posts) %>")
-$("#more-link").replaceWith("<%= j(
-  link_to_next_page(@posts, 'もっと見る', remote: true, class: 'more-link', id: 'more-link')
-) %>");
