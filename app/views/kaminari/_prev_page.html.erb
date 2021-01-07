@@ -6,6 +6,6 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<span class="prev">
+<span class="prev flex items-center justify-center w-10 h-10 text-indigo-500 rounded-full hover:bg-indigo-500 hover:text-white"title="前のページへ">
   <%= link_to_unless current_page.first?, t('views.pagination.previous').html_safe, url, rel: 'prev', remote: remote %>
 </span>

@@ -6,6 +6,6 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<span class="next">
+<span class="next flex items-center justify-center w-10 h-10 text-indigo-500 rounded-full hover:bg-indigo-500 hover:text-white" title="次のページへ">
   <%= link_to_unless current_page.last?, t('views.pagination.next').html_safe, url, rel: 'next', remote: remote %>
 </span>

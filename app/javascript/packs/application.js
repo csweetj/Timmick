@@ -15,7 +15,8 @@ require("../Timers/relax_timer")
 require("../Timers/fitness_timer")
 require("../Timers/hobby_timer")
 
-require("../jscroll")
+require("../Posts/jscroll")
+require("../Posts/tag_pagination")
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
