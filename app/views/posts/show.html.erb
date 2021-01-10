@@ -5,15 +5,15 @@
       <span class="title-font font-medium px-2"><%= @post.user.nickname %></span>
     </a>
     <span class="float-right text-sm px-2 py-4 mx-auto"><%= @post.created_at.strftime('%Y/%m/%d')%></span>
-    <%= link_to @post do %>
+    <div>
       <% if @post.feature_images.present? %>
-        <div class="flex w-1/4 lg:h-48 md:h-36 object-contain object-center">
-          <% @post.feature_images.each do |image| %>
-            <%= image_tag image, class:"p-1" %>
-          <% end %>
-        </div>
+        <% @post.feature_images.each do |image| %>
+            <%= link_to image, 'data-lightbox': image do %>
+              <%= image_tag image, class:"p-1" %>
+            <% end %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
 
 
     <div class="px-4 py-4">
