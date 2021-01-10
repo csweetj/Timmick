@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[nickname career_id
-                                                         gender_id birthday])
+                                                         gender_id birthday avatar])
     devise_parameter_sanitizer.permit(:account_update, keys: %i[nickname career_id
-                                                                gender_id birthday])
+                                                                gender_id birthday avatar])
   end
 end

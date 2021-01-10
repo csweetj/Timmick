@@ -6,6 +6,11 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="mb-6">
+      <%= f.label :アバター画像, class:"" %>
+      <%= f.file_field :avatar, class:"input" %>
+    </div>
+    
+    <div class="mb-6">
       <%= f.label :ニックネーム, class:"relative" %>
         <span class="absolute text-red-600">*</span>
       <%= f.text_field :nickname, class:"input" %>

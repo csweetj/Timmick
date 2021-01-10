@@ -3,7 +3,11 @@
     <div class="p-2 md:w-1/3">
       <div class="h-full overflow-hidden rounded border">
         <a class="inline-flex items-center px-1 py-1 mx-auto">
-          <img alt="blog" src="https://dummyimage.com/104x104" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+          <% if post.user.avatar.present? %>
+            <%= image_tag post.user.avatar, class:"flex items-center justify-center p-2 mx-auto w-16 h-16 rounded-full flex-shrink-0 object-cover object-center"%>
+          <% else %>
+            <img alt="user" src="/assets/user.jpeg" class="w-10 h-10 rounded-full flex-shrink-0 object-cover object-center">
+          <% end %>
           <span class="title-font font-medium px-2"><%= post.user.nickname %></span>
         </a>
         <span class="float-right text-sm px-2 py-4 mx-auto"><%= post.created_at.strftime('%Y/%m/%d')%></span>
