@@ -7,10 +7,10 @@
     <div class="">
       <% if user_signed_in? %>
         <% if current_user.avatar.present?%>
-          <%= image_tag current_user.avatar, class:"p-2 mx-auto w-20 h-20 rounded-full flex-shrink-0 object-cover object-center"%>
+          <%= image_tag current_user.avatar, class:"p-2 mx-auto w-24 h-24 rounded-full flex-shrink-0 object-cover object-center"%>
         <% else %>
           <a class="p-2 mx-auto">
-            <img alt="user" src="/assets/user.jpeg" class="p-2 mx-auto w-10 h-10 rounded-full flex-shrink-0 object-cover object-center">
+            <img alt="user" src="/assets/user.jpeg" class="p-2 mx-auto w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
           </a>            
         <% end %>
       <% end %>
