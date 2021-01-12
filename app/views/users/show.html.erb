@@ -1,0 +1,39 @@
+<div class="max-w-6xl m-auto">
+  <div class="flex item-center justify-center">
+    <div class="bg-white shadow p-4 rounded lg:w-1/2">
+      <div class="text-center mt-4">
+        <p class="text-gray-600 font-bold"><%= @user.nickname %></p>
+      </div>
+      <div class="flex justify-center mt-4">
+        <% if user_signed_in? %>
+          <% if @user.avatar.present?%>
+            <%= image_tag @user.avatar, class:"p-2 mx-auto w-24 h-24 rounded-full flex-shrink-0 object-cover object-center"%>
+          <% else %>
+            <img alt="user" src="/assets/user.jpeg" class="p-2 mx-auto w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
+          <% end %>
+        <% end %>
+      </div>
+      <div class="mt-6 flex justify-around text-center">
+        <div>
+          <p class="text-gray-700 font-bold"><%= @user.posts.length %></p>
+          <p class="text-xs mt-2 text-gray-600 font-hairline">投稿</p>
+        </div>
+        <div>
+          <p class="text-gray-700 font-bold"><%= %></p>
+          <p class="text-xs mt-2 text-gray-600 font-hairline">受信したいいね</p>
+        </div>
+      </div>
+      <div class="mt-6">
+        <button class="rounded shadow-md w-full items-center shadow bg-blue-500 px-4 py-2 text-white hover:bg-blue-400">
+          Follow
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <%= render partial: 'posts/posts' %>
+
+  <div class="flex items-center justify-center my-10">
+    <%= paginate @posts %>
+  </div>
+</div>
