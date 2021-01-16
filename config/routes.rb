@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   root to: 'posts#index'
   
   devise_for :users
-  resources :users, only: %i{show}
+  resources :users, only: %i{show}, shallow: true do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: %i[create destroy]
   
   resources :posts, shallow: true do
     resources :likes, only: %i[create destroy]

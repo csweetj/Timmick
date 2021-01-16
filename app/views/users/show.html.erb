@@ -23,24 +23,31 @@
           <p class="text-xs mt-2 text-gray-600 font-hairline">受信したいいね</p>
         </div>
         <div>
-          <p class="text-gray-700 font-bold">実装中</p>
-          <p class="text-xs mt-2 text-gray-600 font-hairline">フォロー中</p>
+          <%= link_to following_user_path(@user.id) do %>
+            <p class="text-gray-700 font-bold"><%= @user.following.length %></p>
+            <p class="text-xs mt-2 text-gray-600 font-hairline">フォロー中</p>
+          <% end %>
         </div>
         <div>
-          <p class="text-gray-700 font-bold">実装中</p>
-          <p class="text-xs mt-2 text-gray-600 font-hairline">フォロワー</p>
+          <%= link_to followers_user_path(@user.id) do %>
+            <p class="text-gray-700 font-bold"><%= @user.followers.length %></p>
+            <p class="text-xs mt-2 text-gray-600 font-hairline">フォロワー</p>
+          <% end %>
         </div>
       </div>
+      
       <div class="mt-6">
-        <button class="rounded-full w-full items-center shadow px-4 py-2 border-indigo-400 border-opacity-100 text-indigo-400 hover:bg-indigo-400 hover:text-white">
-          フォローする
-        </button>
+        <%= render "relationships/follow"%>
       </div>
     </div>
   </div>
 
   <div class="flex items-center justify-between py-4 my-4 border-b">
-    <h1 class="text-xl font-bold mb-0 text-gray-500"><%= @user.nickname %>さんの投稿</h1>
+    <% if current_user.id == @user.id %>
+      <h1 class="text-xl font-bold mb-0 text-gray-500">あなたの投稿</h1>
+    <% else %>
+      <h1 class="text-xl font-bold mb-0 text-gray-500"><%= @user.nickname %>さんの投稿</h1>
+    <% end %>
   </div>
   <%= render partial: 'posts/posts' %>
 
