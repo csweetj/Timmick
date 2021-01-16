@@ -7,11 +7,13 @@
     <div class="">
       <% if user_signed_in? %>
         <% if current_user.avatar.present?%>
-          <%= image_tag current_user.avatar, class:"p-2 mx-auto w-24 h-24 rounded-full flex-shrink-0 object-cover object-center"%>
+          <%= link_to "/users/#{current_user.id}", title: "ユーザーページへ" do %>
+            <%= image_tag current_user.avatar, class:"p-2 mx-auto w-24 h-24 rounded-full flex-shrink-0 object-cover object-center"%>
+          <% end %>
         <% else %>
-          <a class="p-2 mx-auto">
+          <%= link_to "/users/#{current_user.id}", title: "ユーザーページへ" do %>
             <img alt="user" src="/assets/user.jpeg" class="p-2 mx-auto w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
-          </a>            
+          <% end %>
         <% end %>
       <% end %>
     </div>

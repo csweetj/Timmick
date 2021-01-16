@@ -53,7 +53,3 @@
   <% end %>
 </div>
 
-<div class="post-next flex items-center justify-center my-10">
-  <%= link_to_next_page @posts, '次のページ', class: "next hidden" %>
-  <%= paginate @posts if params[:tag_list] %>
-</div>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: 'posts#index'
+  
   devise_for :users
-
+  resources :users, only: %i{show}
+  
   resources :posts, shallow: true do
     resources :likes, only: %i[create destroy]
     resources :comments, only: %i[create edit update destroy]

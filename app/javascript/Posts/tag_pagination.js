@@ -1,4 +1,4 @@
-if (document.URL.match( /tag_list/ )) {
+if (document.URL.match( /tag_list/ ) || document.URL.match( /users/ )) {
   function isCurrentPage() {
     let page = document.getElementById('current');
     page.classList.remove('hover:bg-indigo-500', 'hover:text-white');
