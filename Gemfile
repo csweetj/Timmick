@@ -80,3 +80,6 @@ gem 'acts-as-taggable-on', '~> 7.0'
 
 # ページネーション
 gem 'kaminari'
+
+# 日本語化
+gem 'rails-i18n'
