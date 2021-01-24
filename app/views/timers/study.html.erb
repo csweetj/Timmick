@@ -18,6 +18,13 @@
       <div id="PomodoroStart" class="btn btn-default">Start</div>
       <div id="PomodoroReset" class="btn btn-default hidden"></div>
     </div>   
+    <div class="flex item-center justify-center">
+      <%= form_with model: @timer, local: true do |form| %>
+        <%= form.text_field :timer_name, value: "学習" %>
+        <%= form.number_field :timer_count, min: 0 %>
+        <%= form.submit %>
+      <% end %>
+    </div>
     <!-- モーダルウィンドウ -->
     <div class="text-center m-auto p-10">
       <div id="PomodoroOpen"></div>

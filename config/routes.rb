@@ -20,4 +20,8 @@ Rails.application.routes.draw do
   get 'timers/relax' => 'timers#relax'
   get 'timers/fitness' => 'timers#fitness'
   get 'timers/hobby' => 'timers#hobby'
+  post 'timers/study' => 'timers#study_create'
+  post 'timers/relax' => 'timers#relax_create'
+  post 'timers/fitness' => 'timers#fitness_create'
+  post 'timers/hobby' => 'timers#hobby_create'
 end
