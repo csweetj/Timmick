@@ -260,6 +260,20 @@ if (document.URL.match( /study/ )) {
       StudentMenu.classList.add('text-white');
     });
 
+    //時間記録・編集・保存
+    const PomodoroTime = document.getElementById('PomodoroTime');
+    const PomodoroEdit = document.getElementById('PomodoroEdit');
+    const PomodoroSave = document.getElementById('PomodoroSave');
+
+    PomodoroEdit.addEventListener('click', () => {
+      PomodoroTime.readOnly = false;
+    })
+
+    PomodoroTime.addEventListener('input', () => {
+      PomodoroSave.disabled = false;
+    })
+    
+
     //プログレスバー
     const PomodoroProgressing = new ProgressBar.Line(PomodoroBar, {
       strokeWidth: 4,
