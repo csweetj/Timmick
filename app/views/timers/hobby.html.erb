@@ -18,6 +18,19 @@
       <div id="GameStart" class="btn btn-default">Start</div>
       <div id="GameReset" class="btn btn-default hidden"></div>
     </div>   
+    
+    <div class="flex item-center justify-center">
+      <%= form_with model: @timer, local: true do |form| %>
+        <div>
+          <%= form.text_field :timer_name, value: "趣味", readonly: true %>
+          <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "GameTime" %>
+          <span class="cursor-pointer" id="GameEdit"><i class="fas fa-edit"></i></span>
+        </div>
+        <div class="flex text-center justify-center p-10">
+          <%= form.submit disabled: true, id: "GameSave" %>
+        </div>
+      <% end %>
+    </div>
     <!-- モーダルウィンドウ -->
     <div class="text-center m-auto p-10">
       <div id="GameOpen"></div>
@@ -35,9 +48,22 @@
     <!-- タイマー -->
     <div class="m-auto w-1/2 h-4" id="HobbyBar"></div>
     <div class="max-w-2xl text-6xl text-center m-auto p-10 ">
-    <div id="HobbyTimer">30:00</div>
-    <div id="HobbyStart" class="btn btn-default">Start</div>
-    <div id="HobbyReset" class="btn btn-default hidden"></div>
+      <div id="HobbyTimer">30:00</div>
+      <div id="HobbyStart" class="btn btn-default">Start</div>
+      <div id="HobbyReset" class="btn btn-default hidden"></div>
+    </div>
+
+    <div class="flex item-center justify-center">
+      <%= form_with model: @timer, local: true do |form| %>
+        <div>
+          <%= form.text_field :timer_name, value: "趣味", readonly: true %>
+          <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "HobbyTime" %>
+          <span class="cursor-pointer" id="HobbyEdit"><i class="fas fa-edit"></i></span>
+        </div>
+        <div class="flex text-center justify-center p-10">
+          <%= form.submit disabled: true, id: "HobbySave" %>
+        </div>
+      <% end %>
     </div>
     <!-- モーダルウィンドウ -->
     <div class="text-center m-auto p-10">

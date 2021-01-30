@@ -260,23 +260,63 @@ if (document.URL.match( /hobby/ )) {
       HobbyMenu.classList.add('text-white');
     });
 
+    //時間記録・編集・保存
+    const GameTime = document.getElementById('GameTime');
+    const GameEdit = document.getElementById('GameEdit');
+    const GameSave = document.getElementById('GameSave');
+    const HobbyTime = document.getElementById('HobbyTime');
+    const HobbyEdit = document.getElementById('HobbyEdit');
+    const HobbySave = document.getElementById('HobbySave');
+
+    GameEdit.addEventListener('click', () => {
+      GameTime.readOnly = false;
+    })
+
+    GameTime.addEventListener('input', () => {
+      GameSave.disabled = false;
+    })
+
+    HobbyEdit.addEventListener('click', () => {
+      HobbyTime.readOnly = false;
+    })
+
+    HobbyTime.addEventListener('input', () => {
+      HobbySave.disabled = false;
+    })
+
         //プログレスバー
+    let num7 = 0;
     const GameProgressing = new ProgressBar.Line(GameBar, {
       strokeWidth: 4,
       easing: 'linear',
       color: '#FFEA82',
       trailColor: '#eee',
       trailWidth: 1,
-      svgStyle: {width: '100%', height: '100%'}
+      svgStyle: {width: '100%', height: '100%'},
+      step: (state, bar) => {
+        const GameBarValue = bar.value();
+        if (GameBarValue == 1) {
+          num7++;
+          GameTime.value = num7;
+        }
+      }
     });
     
+    let num8 = 0;
     const HobbyProgressing = new ProgressBar.Line(HobbyBar, {
       strokeWidth: 4,
       easing: 'linear',
       color: '#FFEA82',
       trailColor: '#eee',
       trailWidth: 1,
-      svgStyle: {width: '100%', height: '100%'}
+      svgStyle: {width: '100%', height: '100%'},
+      step: (state, bar) => {
+        const HobbyBarValue = bar.value();
+        if (HobbyBarValue == 1) {
+          num8++;
+          HobbyTime.value = num8;
+        }
+      }
     });
   }
   
