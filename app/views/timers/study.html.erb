@@ -20,9 +20,14 @@
     </div>   
     <div class="flex item-center justify-center">
       <%= form_with model: @timer, local: true do |form| %>
-        <%= form.text_field :timer_name, value: "学習" %>
-        <%= form.number_field :timer_count, min: 0 %>
-        <%= form.submit %>
+        <div>
+          <%= form.text_field :timer_name, value: "学習", readonly: true %>
+          <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "PomodoroTime" %>
+          <span class="cursor-pointer" id="PomodoroEdit"><i class="fas fa-edit"></i></span>
+        </div>
+        <div class="flex text-center justify-center p-10">
+          <%= form.submit disabled: true, id: "PomodoroSave" %>
+        </div>
       <% end %>
     </div>
     <!-- モーダルウィンドウ -->
@@ -42,9 +47,21 @@
     <!-- タイマー -->
     <div class="m-auto w-1/2 h-4" id="StudentBar"></div>
     <div class="max-w-2xl text-6xl text-center m-auto p-10 ">
-    <div id="StudentTimer">50:00</div>
-    <div id="StudentStart" class="btn btn-default">Start</div>
-    <div id="StudentReset" class="btn btn-default hidden"></div>
+      <div id="StudentTimer">50:00</div>
+      <div id="StudentStart" class="btn btn-default">Start</div>
+      <div id="StudentReset" class="btn btn-default hidden"></div>
+    </div>
+    <div class="flex item-center justify-center">
+      <%= form_with model: @timer, local: true do |form| %>
+        <div>
+          <%= form.text_field :timer_name, value: "学習", readonly: true %>
+          <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "StudentTime" %>
+          <span class="cursor-pointer" id="StudentEdit"><i class="fas fa-edit"></i></span>
+        </div>
+        <div class="flex text-center justify-center p-10">
+          <%= form.submit disabled: true, id: "StudentSave" %>
+        </div>
+      <% end %>
     </div>
     <!-- モーダルウィンドウ -->
     <div class="text-center m-auto p-10">

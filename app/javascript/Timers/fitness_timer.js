@@ -159,11 +159,14 @@ if (document.URL.match( /fitness/ )) {
     const HiitOpen = document.getElementById('HiitOpen');
     const HiitRest = document.getElementById('HiitRest');
     const HiitKeep = document.getElementById('HiitKeep');
+    let num5 = 0;
 
     HiitOpen.addEventListener('click', () => {
       if (HiitRest.classList.contains('active')) {
         document.getElementById('HiitKeep').click();
       } else {
+        num5 ++;
+        HiitTime.value = num5;
         document.getElementById('HiitRest').click();
       }
     });
@@ -188,9 +191,12 @@ if (document.URL.match( /fitness/ )) {
     const StretchOpen = document.getElementById('StretchOpen');
     const StretchRest = document.getElementById('StretchRest');
     const StretchKeep = document.getElementById('StretchKeep');
+    let num6 = 0;
 
     StretchOpen.addEventListener('click', () => {
       if (Resting === true) {
+        num6++;
+        StretchTime.value = num6;
         document.getElementById('StretchRest').click();
       } else {
         document.getElementById('StretchKeep').click();
@@ -241,21 +247,43 @@ if (document.URL.match( /fitness/ )) {
       StretchMenu.classList.add('text-white');
     });
 
+    //時間記録・編集・保存
+    const HiitTime = document.getElementById('HiitTime');
+    const HiitEdit = document.getElementById('HiitEdit');
+    const HiitSave = document.getElementById('HiitSave');
+    const StretchTime = document.getElementById('StretchTime');
+    const StretchEdit = document.getElementById('StretchEdit');
+    const StretchSave = document.getElementById('StretchSave');
+
+    HiitEdit.addEventListener('click', () => {
+      HiitTime.readOnly = false;
+    })
+
+    HiitTime.addEventListener('change', () => {
+      HiitSave.disabled = false;
+    })
+
+    StretchEdit.addEventListener('click', () => {
+      StretchTime.readOnly = false;
+    })
+
+    StretchTime.addEventListener('change', () => {
+      StretchSave.disabled = false;
+    })
+
     //プログレスバー
     const HiitProgressing = new ProgressBar.SemiCircle(HiitBar, {
       strokeWidth: 1.5,
       easing: 'linear',
-      duration: 1400,
       color: '#FFEA82',
       trailColor: '#eee',
       trailWidth: 0.8,
-      svgStyle: {margin: 'auto'}
+      svgStyle: {margin: 'auto'},
     });
     
     const StretchProgressing = new ProgressBar.SemiCircle(StretchBar, {
       strokeWidth: 1.5,
       easing: 'linear',
-      duration: 1400,
       color: '#FFEA82',
       trailColor: '#eee',
       trailWidth: 0.8,
