@@ -159,6 +159,7 @@ if (document.URL.match( /fitness/ )) {
     const HiitOpen = document.getElementById('HiitOpen');
     const HiitRest = document.getElementById('HiitRest');
     const HiitKeep = document.getElementById('HiitKeep');
+    let num5 = 0;
 
     HiitOpen.addEventListener('click', () => {
       if (HiitRest.classList.contains('active')) {

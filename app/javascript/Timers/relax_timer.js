@@ -157,13 +157,18 @@ if (document.URL.match( /relax/ )) {
     const BoxBreathingOpen = document.getElementById('BoxBreathingOpen');
     const BoxBreathingRest = document.getElementById('BoxBreathingRest');
     const BoxBreathingKeep = document.getElementById('BoxBreathingKeep');
+    let num3 = 0;
   
 
     BoxBreathingOpen.addEventListener('click', () => {
       if (isBreathing === true) {
         document.getElementById('BoxBreathingRest').click();
+        num3 ++;
+        BoxBreathingTime.value = num3;
       } else {
         document.getElementById('BoxBreathingKeep').click();
+        num3 ++;
+        BoxBreathingTime.value = num3;
       }
     });
 
@@ -251,6 +256,30 @@ if (document.URL.match( /relax/ )) {
       RemSleepMenu.classList.add('text-white');
     });
 
+    //時間記録・編集・保存
+    const BoxBreathingTime = document.getElementById('BoxBreathingTime');
+    const BoxBreathingEdit = document.getElementById('BoxBreathingEdit');
+    const BoxBreathingSave = document.getElementById('BoxBreathingSave');
+    const RemSleepTime = document.getElementById('RemSleepTime');
+    const RemSleepEdit = document.getElementById('RemSleepEdit');
+    const RemSleepSave = document.getElementById('RemSleepSave');
+
+    BoxBreathingEdit.addEventListener('click', () => {
+      BoxBreathingTime.readOnly = false;
+    })
+
+    BoxBreathingTime.addEventListener('change', () => {
+      BoxBreathingSave.disabled = false;
+    })
+
+    RemSleepEdit.addEventListener('click', () => {
+      RemSleepTime.readOnly = false;
+    })
+
+    RemSleepTime.addEventListener('change', () => {
+      RemSleepSave.disabled = false;
+    })
+
     //プログレスバー
     const BoxBreathingProgressing = new ProgressBar.SemiCircle(BoxBreathingBar, {
       strokeWidth: 1.5,
@@ -261,6 +290,7 @@ if (document.URL.match( /relax/ )) {
       svgStyle: {margin: 'auto'},
     });
     
+    let num4 = 0;
     const RemSleepProgressing = new ProgressBar.SemiCircle(RemSleepBar, {
       strokeWidth: 1.5,
       easing: 'linear',
@@ -268,6 +298,13 @@ if (document.URL.match( /relax/ )) {
       trailColor: '#eee',
       trailWidth: 0.8,
       svgStyle: {margin: 'auto'},
+      step: (state, bar) => {
+        const RemSleepBarValue = bar.value();
+        if (RemSleepBarValue == 1) {
+          num4++;
+          RemSleepTime.value = num4;
+        }
+      }
     });    
   }
   
