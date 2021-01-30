@@ -172,7 +172,7 @@ if (document.URL.match( /study/ )) {
     PomodoroRest.addEventListener('click', () => {
       PomodoroRemoveModalWindow();
       PomodoroTimeToCountDown = 5 * 60 * 1000;
-      PomodoroProgressing.set(1);
+      PomodoroProgressing.set(0.99);
       document.getElementById('PomodoroStart').click();
     });
 
@@ -211,7 +211,7 @@ if (document.URL.match( /study/ )) {
     StudentRest.addEventListener('click', () => {
       StudentRemoveModalWindow();
       StudentTimeToCountDown = 10 * 60 * 1000;
-      StudentProgressing.set(1);
+      StudentProgressing.set(0.99);
       document.getElementById('StudentStart').click();
     });
 
@@ -298,7 +298,7 @@ if (document.URL.match( /study/ )) {
         const PomodoroBarValue = bar.value();
         if (PomodoroBarValue == 1) {
           num1++;
-          PomodoroTime.value = (25 * num1);
+          PomodoroTime.value = num1;
         }
       }
     });
@@ -315,7 +315,7 @@ if (document.URL.match( /study/ )) {
         const StudentBarValue = bar.value();
         if (StudentBarValue == 1) {
           num2++;
-          StudentTime.value = (50 * num2);
+          StudentTime.value = num2;
         }
       }
     });
