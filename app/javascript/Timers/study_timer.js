@@ -264,6 +264,9 @@ if (document.URL.match( /study/ )) {
     const PomodoroTime = document.getElementById('PomodoroTime');
     const PomodoroEdit = document.getElementById('PomodoroEdit');
     const PomodoroSave = document.getElementById('PomodoroSave');
+    const StudentTime = document.getElementById('StudentTime');
+    const StudentEdit = document.getElementById('StudentEdit');
+    const StudentSave = document.getElementById('StudentSave');
 
     PomodoroEdit.addEventListener('click', () => {
       PomodoroTime.readOnly = false;
@@ -272,25 +275,49 @@ if (document.URL.match( /study/ )) {
     PomodoroTime.addEventListener('input', () => {
       PomodoroSave.disabled = false;
     })
+
+    StudentEdit.addEventListener('click', () => {
+      StudentTime.readOnly = false;
+    })
+
+    StudentTime.addEventListener('input', () => {
+      StudentSave.disabled = false;
+    })
     
 
     //プログレスバー
+    let num1 = 0;
     const PomodoroProgressing = new ProgressBar.Line(PomodoroBar, {
       strokeWidth: 4,
       easing: 'linear',
       color: '#FFEA82',
       trailColor: '#eee',
       trailWidth: 1,
-      svgStyle: {width: '100%', height: '100%'}
+      svgStyle: {width: '100%', height: '100%'},
+      step: (state, bar) => {
+        const PomodoroBarValue = bar.value();
+        if (PomodoroBarValue == 1) {
+          num1++;
+          PomodoroTime.value = (25 * num1);
+        }
+      }
     });
-    
+
+    let num2 = 0;
     const StudentProgressing = new ProgressBar.Line(StudentBar, {
       strokeWidth: 4,
       easing: 'linear',
       color: '#FFEA82',
       trailColor: '#eee',
       trailWidth: 1,
-      svgStyle: {width: '100%', height: '100%'}
+      svgStyle: {width: '100%', height: '100%'},
+      step: (state, bar) => {
+        const StudentBarValue = bar.value();
+        if (StudentBarValue == 1) {
+          num2++;
+          StudentTime.value = (50 * num2);
+        }
+      }
     });
   }
   
