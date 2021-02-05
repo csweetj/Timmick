@@ -50,5 +50,6 @@ vendor/assets/bower_components
 *.bowerrc
 bower.json
 
+# CSS・Javascriptが反映されないのを防ぐため
 node_modules
 npm-debug.log
