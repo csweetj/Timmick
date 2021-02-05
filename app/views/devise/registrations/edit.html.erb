@@ -87,13 +87,13 @@
     </div>
 
     <div class="mb-6">
-      <%= f.submit "更新", class: "btn btn-default" %>
+      <%= f.submit "更新", class: "btn btn-default w-full" %>
     </div>
   <% end %>
 
   <hr class="mt-6 mb-3 border" />
-  <div class="flex items-center justify-between">
-    <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "ほんとに削除しますか？" }, method: :delete, class: "btn btn-red" %>
+  <div class="flex items-center justify-center">
+    <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "ほんとに削除しますか？" }, method: :delete, class: "btn btn-red w-full" %>
   </div>
 
 <% end %>
