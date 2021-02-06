@@ -4,13 +4,11 @@
       <div class="h-full overflow-hidden rounded border">
         <span class="inline-flex float-right text-sm font-thin p-2 mx-auto"><%= post.created_at.strftime('%Y/%m/%d')%></span>
         <div class="flex items-center">
-          <% if post.user.avatar.present? %>
-            <%= link_to "/users/#{post.user.id}", title: "ユーザーページへ" do %>
+          <%= link_to "/users/#{post.user.id}", title: "ユーザーページへ" do %>
+            <% if post.user.avatar.present? %>
               <%= image_tag post.user.avatar, class:"inline-flex items-center justify-center p-2 mx-auto w-16 h-16 rounded-full flex-shrink-0 object-cover object-center"%>
               <span class="title-font font-medium"><%= post.user.nickname %></span>
-            <% end %>
-          <% else %>
-            <%= link_to "/users/#{post.user.id}", title: "ユーザーページへ" do %>
+            <% else %>
               <img alt="user" src="/assets/user.jpeg" class="inline-flex p-2 w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
               <span class="title-font font-medium px-1"><%= post.user.nickname %></span>
             <% end %>
