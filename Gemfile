@@ -83,3 +83,7 @@ gem 'kaminari'
 
 # 日本語化
 gem 'rails-i18n'
+
+# グラフ機能
+gem "chartkick"
+gem "groupdate"

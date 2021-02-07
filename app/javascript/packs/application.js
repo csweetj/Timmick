@@ -9,6 +9,10 @@ require("@rails/activestorage").start()
 require("channels")
 require('jquery')
 
+// グラフ関連
+require("chartkick")
+require("chart.js")
+
 //タイマー関連
 require("../Timers/study_timer")
 require("../Timers/relax_timer")
