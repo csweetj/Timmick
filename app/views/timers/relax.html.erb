@@ -24,7 +24,7 @@
         <div>
           <%= form.text_field :timer_name, value: "リラックス", readonly: true %>
           <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "BoxBreathingTime" %>
-          <span class="cursor-pointer" id="BoxBreathingEdit"><i class="fas fa-edit"></i></span>
+          <span class="cursor-pointer" id="BoxBreathingEdit" title="編集する"><i class="fas fa-edit"></i></span>
         </div>
         <div class="flex text-center justify-center p-10">
           <%= form.submit disabled: true, id: "BoxBreathingSave" %>
@@ -58,7 +58,7 @@
         <div>
           <%= form.text_field :timer_name, value: "リラックス", readonly: true %>
           <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "RemSleepTime" %>
-          <span class="cursor-pointer" id="RemSleepEdit"><i class="fas fa-edit"></i></span>
+          <span class="cursor-pointer" id="RemSleepEdit" title="編集する"><i class="fas fa-edit"></i></span>
         </div>
         <div class="flex text-center justify-center p-10">
           <%= form.submit disabled: true, id: "RemSleepSave" %>

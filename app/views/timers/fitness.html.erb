@@ -24,7 +24,7 @@
         <div>
           <%= form.text_field :timer_name, value: "フィットネス", readonly: true %>
           <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "HiitTime" %>
-          <span class="cursor-pointer" id="HiitEdit"><i class="fas fa-edit"></i></span>
+          <span class="cursor-pointer" id="HiitEdit" title="編集する"><i class="fas fa-edit"></i></span>
         </div>
         <div class="flex text-center justify-center p-10">
           <%= form.submit disabled: true, id: "HiitSave" %>
@@ -54,7 +54,7 @@
         <div>
           <%= form.text_field :timer_name, value: "フィットネス", readonly: true %>
           <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "StretchTime" %>
-          <span class="cursor-pointer" id="StretchEdit"><i class="fas fa-edit"></i></span>
+          <span class="cursor-pointer" id="StretchEdit" title="編集する"><i class="fas fa-edit"></i></span>
         </div>
         <div class="flex text-center justify-center p-10">
           <%= form.submit disabled: true, id: "PomodoroSave" %>
