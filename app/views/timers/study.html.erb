@@ -20,13 +20,16 @@
     </div>   
     <div class="flex item-center justify-center">
       <%= form_with model: @timer, local: true do |form| %>
-        <div>
-          <%= form.text_field :timer_name, value: "学習", readonly: true %>
+        <div class="flex item-center justify-center">
+          <%= form.text_field :timer_name, value: "学習", readonly: true, class:"w-full" %>
+        </div>
+        <div class="flex item-center justify-center my-2">
           <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "PomodoroTime" %>
-          <span class="cursor-pointer" id="PomodoroEdit" title="編集する"><i class="fas fa-edit"></i></span>
+          <p class="">✖︎セット</p>
+          <span class="cursor-pointer" id="PomodoroEdit" title="編集する"><i class="fas fa-edit mx-2"></i></span>
         </div>
         <div class="flex text-center justify-center p-10">
-          <%= form.submit disabled: true, id: "PomodoroSave" %>
+          <%= form.submit disabled: true, id: "PomodoroSave", value: "記録する", class: "p-2" %>
         </div>
       <% end %>
     </div>
@@ -53,13 +56,16 @@
     </div>
     <div class="flex item-center justify-center">
       <%= form_with model: @timer, local: true do |form| %>
-        <div>
-          <%= form.text_field :timer_name, value: "学習", readonly: true %>
+        <div class="flex item-center justify-center">
+          <%= form.text_field :timer_name, value: "学習", readonly: true, class:"w-full" %>
+        </div>
+        <div class="flex item-center justify-center my-2">
           <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "StudentTime" %>
-          <span class="cursor-pointer" id="StudentEdit" title="編集する"><i class="fas fa-edit"></i></span>
+          <p class="">✖︎セット</p>
+          <span class="cursor-pointer" id="StudentEdit" title="編集する"><i class="fas fa-edit mx-2"></i></span>
         </div>
         <div class="flex text-center justify-center p-10">
-          <%= form.submit disabled: true, id: "StudentSave" %>
+          <%= form.submit disabled: true, id: "StudentSave", value: "記録する", class: "p-2" %>
         </div>
       <% end %>
     </div>

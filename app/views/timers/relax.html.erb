@@ -21,13 +21,16 @@
 
     <div class="flex item-center justify-center">
       <%= form_with model: @timer, local: true do |form| %>
-        <div>
-          <%= form.text_field :timer_name, value: "リラックス", readonly: true %>
+        <div class="flex item-center justify-center">
+          <%= form.text_field :timer_name, value: "リラックス", readonly: true, class:"w-full" %>
+        </div>
+        <div class="flex item-center justify-center my-2">
           <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "BoxBreathingTime" %>
-          <span class="cursor-pointer" id="BoxBreathingEdit" title="編集する"><i class="fas fa-edit"></i></span>
+          <p class="">✖︎セット</p>
+          <span class="cursor-pointer" id="BoxBreathingEdit" title="編集する"><i class="fas fa-edit mx-2"></i></span>
         </div>
         <div class="flex text-center justify-center p-10">
-          <%= form.submit disabled: true, id: "BoxBreathingSave" %>
+          <%= form.submit disabled: true, id: "BoxBreathingSave", value: "記録する", class: "p-2" %>
         </div>
       <% end %>
     </div>
@@ -55,13 +58,16 @@
 
     <div class="flex item-center justify-center">
       <%= form_with model: @timer, local: true do |form| %>
-        <div>
-          <%= form.text_field :timer_name, value: "リラックス", readonly: true %>
+        <div class="flex item-center justify-center">
+          <%= form.text_field :timer_name, value: "リラックス", readonly: true, class:"w-full" %>
+        </div>
+        <div class="flex item-center justify-center my-2">
           <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "RemSleepTime" %>
-          <span class="cursor-pointer" id="RemSleepEdit" title="編集する"><i class="fas fa-edit"></i></span>
+          <p class="">✖︎セット</p>
+          <span class="cursor-pointer" id="RemSleepEdit" title="編集する"><i class="fas fa-edit mx-2"></i></span>
         </div>
         <div class="flex text-center justify-center p-10">
-          <%= form.submit disabled: true, id: "RemSleepSave" %>
+          <%= form.submit disabled: true, id: "RemSleepSave", value: "記録する", class: "p-2" %>
         </div>
       <% end %>
     </div>
