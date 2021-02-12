@@ -18,18 +18,19 @@
       <div id="PomodoroStart" class="btn btn-default">Start</div>
       <div id="PomodoroReset" class="btn btn-default hidden"></div>
     </div>   
+    
     <div class="flex item-center justify-center">
       <%= form_with model: @timer, local: true do |form| %>
-        <div class="flex item-center justify-center">
-          <%= form.text_field :timer_name, value: "学習", readonly: true, class:"w-full" %>
-        </div>
-        <div class="flex item-center justify-center my-2">
-          <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "PomodoroTime" %>
-          <p class="">✖︎セット</p>
-          <span class="cursor-pointer" id="PomodoroEdit" title="編集する"><i class="fas fa-edit mx-2"></i></span>
+        <div class="inline-flex">
+          <%= form.text_field :timer_name, value: "学習", readonly: true, class:"input h-8 mr-1" %>
+          <div class="relative flex w-full flex-wrap items-stretch mb-3">
+            <span class="cursor-pointer z-10 leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center py-1 pl-1" id="PomodoroEdit" title="編集する"><i class="fas fa-edit"></i></span>
+            <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "PomodoroTime", class:"relative rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-20 h-8 pl-10" %>
+            <p class="text-xl">✖︎セット</p>
+          </div>
         </div>
         <div class="flex text-center justify-center p-10">
-          <%= form.submit disabled: true, id: "PomodoroSave", value: "記録する", class: "p-2" %>
+          <%= form.submit disabled: true, id: "PomodoroSave", value: "記録する", class: "p-2 rounded" %>
         </div>
       <% end %>
     </div>
@@ -54,18 +55,19 @@
       <div id="StudentStart" class="btn btn-default">Start</div>
       <div id="StudentReset" class="btn btn-default hidden"></div>
     </div>
+ 
     <div class="flex item-center justify-center">
       <%= form_with model: @timer, local: true do |form| %>
-        <div class="flex item-center justify-center">
-          <%= form.text_field :timer_name, value: "学習", readonly: true, class:"w-full" %>
-        </div>
-        <div class="flex item-center justify-center my-2">
-          <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "StudentTime" %>
-          <p class="">✖︎セット</p>
-          <span class="cursor-pointer" id="StudentEdit" title="編集する"><i class="fas fa-edit mx-2"></i></span>
+        <div class="inline-flex">
+          <%= form.text_field :timer_name, value: "学習", readonly: true, class:"input h-8 mr-1" %>
+          <div class="relative flex w-full flex-wrap items-stretch mb-3">
+            <span class="cursor-pointer z-10 leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center py-1 pl-1" id="StudentEdit" title="編集する"><i class="fas fa-edit"></i></span>
+            <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "StudentTime", class:"relative rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-20 h-8 pl-10" %>
+            <p class="text-xl">✖︎セット</p>
+          </div>
         </div>
         <div class="flex text-center justify-center p-10">
-          <%= form.submit disabled: true, id: "StudentSave", value: "記録する", class: "p-2" %>
+          <%= form.submit disabled: true, id: "StudentSave", value: "記録する", class: "p-2 rounded" %>
         </div>
       <% end %>
     </div>
