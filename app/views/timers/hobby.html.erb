@@ -22,7 +22,7 @@
     <div class="flex item-center justify-center">
       <%= form_with model: @timer, local: true do |form| %>
         <div class="inline-flex">
-          <%= form.text_field :timer_name, value: "娯楽", readonly: true, class:"input h-8 mr-1" %>
+          <%= form.text_field :timer_name, value: "娯楽", readonly: true, class:"input h-8 mr-1 w-20 px-5" %>
           <div class="relative flex w-full flex-wrap items-stretch mb-3">
             <span class="cursor-pointer z-10 leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center py-1 pl-1" id="GameEdit" title="編集する"><i class="fas fa-edit"></i></span>
             <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "GameTime", class:"relative rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-20 h-8 pl-10" %>
@@ -59,7 +59,7 @@
     <div class="flex item-center justify-center">
       <%= form_with model: @timer, local: true do |form| %>
         <div class="inline-flex">
-          <%= form.text_field :timer_name, value: "娯楽", readonly: true, class:"input h-8 mr-1" %>
+          <%= form.text_field :timer_name, value: "娯楽", readonly: true, class:"input h-8 mr-1 w-20 px-5" %>
           <div class="relative flex w-full flex-wrap items-stretch mb-3">
             <span class="cursor-pointer z-10 leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center py-1 pl-1" id="HobbyEdit" title="編集する"><i class="fas fa-edit"></i></span>
             <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "HobbyTime", class:"relative rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-20 h-8 pl-10" %>
