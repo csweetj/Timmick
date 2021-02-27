@@ -1,7 +1,10 @@
 class Timer < ApplicationRecord
   with_options presence: true do
-    validates :timer_name, :timer_count
+    validates :count
   end
   
   belongs_to :user
+  
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :genre
 end
