@@ -4,7 +4,10 @@ class UsersController < ApplicationController
   def show
     @posts = @user.posts.with_attached_feature_images.includes(:likes, :comments, :taggings).order('created_at DESC').page(params[:page]).per(6)
     # ユーザーのタイマー合計取得
-    @study_timers = @user.timers.where(timer_name: ["ポモドーロ学習", "学生学習"]).pluck(:timer_name, :timer_count, :created_at)
+    @study_timers = @user.timers.where(timer_name: ["ポモドーロ学習", "学生学習"])
+    @relax_timers = @user.timers.where(timer_name: ["ボックス呼吸法", "レムサイクル仮眠"])
+    @fitness_timers = @user.timers.where(timer_name: ["HIITトレーニング", "ストレッチ・ヨガ"])
+    @hobby_timers = @user.timers.where(timer_name: ["ゲーム", "趣味"])
     # いいね合計数取得
     @likes_count = 0
     @posts.each do |post|

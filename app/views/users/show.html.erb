@@ -75,7 +75,7 @@
     </li>
   </ul>
 
-  <%= @study_timers %>
+  <%= line_chart @study_timers.group(:timer_name).group_by_week(:created_at, last: 4).count %>
 
   <div class="flex items-center justify-between py-4 my-4 border-b">
     <% if current_user.id == @user.id %>
