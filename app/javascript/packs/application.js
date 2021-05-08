@@ -13,6 +13,9 @@ require('jquery')
 require("chartkick")
 require("chart.js")
 
+// ユーザー関連
+require("../Users/show")
+
 //タイマー関連
 require("../Timers/study_timer")
 require("../Timers/relax_timer")

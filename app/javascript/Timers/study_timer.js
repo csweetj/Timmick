@@ -297,7 +297,7 @@ if (document.URL.match( /study/ )) {
       step: (state, bar) => {
         const PomodoroBarValue = bar.value();
         if (PomodoroBarValue == 1) {
-          num1++;
+          num1 += 25;
           PomodoroTime.value = num1;
         }
       }
@@ -314,7 +314,7 @@ if (document.URL.match( /study/ )) {
       step: (state, bar) => {
         const StudentBarValue = bar.value();
         if (StudentBarValue == 1) {
-          num2++;
+          num2 += 50;
           StudentTime.value = num2;
         }
       }

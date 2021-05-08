@@ -1,6 +1,6 @@
 class Timer < ApplicationRecord
   with_options presence: true do
-    validates :timer_name, :timer_count
+    validates :count, :genre
   end
   
   belongs_to :user

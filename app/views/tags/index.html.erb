@@ -1,6 +1,10 @@
+<div class="flex items-center justify-between pb-4 mb-4 border-b">
+  <h1 class="text-xl font-bold mb-0 text-gray-500">タグ一覧</h1>
+</div>
+
 <div>
   <% @tags.each do |tag| %>
-    <%= link_to posts_path(tag: tag.name) do %>
+    <%= link_to posts_path(tag_list: tag.name) do %>
       <span class="inline-block py-1 px-2 border rounded-full text-indigo-500 text-xs font-medium tracking-widest   hover:bg-indigo-500 hover:text-white"><%= "##{tag}(#{tag.taggings_count})" %></span>
     <% end %>
   <% end %>

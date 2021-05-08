@@ -296,7 +296,7 @@ if (document.URL.match( /hobby/ )) {
       step: (state, bar) => {
         const GameBarValue = bar.value();
         if (GameBarValue == 1) {
-          num7++;
+          num7 += 60;
           GameTime.value = num7;
         }
       }
@@ -313,7 +313,7 @@ if (document.URL.match( /hobby/ )) {
       step: (state, bar) => {
         const HobbyBarValue = bar.value();
         if (HobbyBarValue == 1) {
-          num8++;
+          num8 += 30;
           HobbyTime.value = num8;
         }
       }

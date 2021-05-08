@@ -12,23 +12,28 @@
   <!-- ゲームタイマー -->
   <section class="bg-purple-600 border rounded hidden" id="Game">
     <!-- タイマー -->
-    <div class="m-auto w-1/2 h-4" id="GameBar"></div>
+    <div class="m-auto w-1/2 h-4 mt-4" id="GameBar"></div>
     <div class="max-w-2xl text-6xl text-center m-auto p-10">
       <div id="GameTimer">60:00</div>
       <div id="GameStart" class="btn btn-default">Start</div>
       <div id="GameReset" class="btn btn-default hidden"></div>
     </div>   
-    
+   
     <div class="flex item-center justify-center">
       <%= form_with model: @timer, local: true do |form| %>
-        <div>
-          <%= form.text_field :timer_name, value: "趣味", readonly: true %>
-          <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "GameTime" %>
-          <span class="cursor-pointer" id="GameEdit"><i class="fas fa-edit"></i></span>
+        <div class="inline-flex">
+          <%= form.text_field :genre, class: "hidden", value: "ゲーム" %>
+          <div class="relative flex w-full flex-wrap items-stretch mb-3">
+            <span class="cursor-pointer z-10 leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center py-1 pl-1" id="GameEdit" title="編集する"><i class="fas fa-edit"></i></span>
+            <%= form.number_field :count, min: 0, max: 600, readonly: true, id: "GameTime", class:"relative rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-20 h-8 pl-10" %>
+            <p class="text-xl">✖︎分</p>
+          </div>
         </div>
-        <div class="flex text-center justify-center p-10">
-          <%= form.submit disabled: true, id: "GameSave" %>
-        </div>
+        <% if user_signed_in? %>
+          <div class="flex text-center justify-center p-10">
+            <%= form.submit disabled: true, id: "GameSave", value: "記録する", class: "p-2 rounded" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <!-- モーダルウィンドウ -->
@@ -46,7 +51,7 @@
   <!-- 趣味タイマー -->
   <section class="bg-pink-600 border rounded hidden" id="Hobby">
     <!-- タイマー -->
-    <div class="m-auto w-1/2 h-4" id="HobbyBar"></div>
+    <div class="m-auto w-1/2 h-4 mt-4" id="HobbyBar"></div>
     <div class="max-w-2xl text-6xl text-center m-auto p-10 ">
       <div id="HobbyTimer">30:00</div>
       <div id="HobbyStart" class="btn btn-default">Start</div>
@@ -55,14 +60,19 @@
 
     <div class="flex item-center justify-center">
       <%= form_with model: @timer, local: true do |form| %>
-        <div>
-          <%= form.text_field :timer_name, value: "趣味", readonly: true %>
-          <%= form.number_field :timer_count, min: 0, max: 600, readonly: true, id: "HobbyTime" %>
-          <span class="cursor-pointer" id="HobbyEdit"><i class="fas fa-edit"></i></span>
+        <div class="inline-flex">
+          <%= form.text_field :genre, class: "hidden", value: "趣味" %>
+          <div class="relative flex w-full flex-wrap items-stretch mb-3">
+            <span class="cursor-pointer z-10 leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center py-1 pl-1" id="HobbyEdit" title="編集する"><i class="fas fa-edit"></i></span>
+            <%= form.number_field :count, min: 0, max: 600, readonly: true, id: "HobbyTime", class:"relative rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-20 h-8 pl-10" %>
+            <p class="text-xl">✖︎分</p>
+          </div>
         </div>
-        <div class="flex text-center justify-center p-10">
-          <%= form.submit disabled: true, id: "HobbySave" %>
-        </div>
+        <% if user_signed_in? %>
+          <div class="flex text-center justify-center p-10">
+            <%= form.submit disabled: true, id: "HobbySave", value: "記録する", class: "p-2 rounded" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <!-- モーダルウィンドウ -->
