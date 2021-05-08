@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2021_01_23_081535) do
   create_table "timers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "count", null: false
     t.bigint "user_id", null: false
-    t.integer "genre_id", null: false
+    t.string "genre", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_timers_on_user_id"

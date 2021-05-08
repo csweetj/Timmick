@@ -3,7 +3,7 @@ class CreateTimers < ActiveRecord::Migration[6.0]
     create_table :timers do |t|
       t.integer :count, null: false
       t.references :user, null: false, foreign_key: true
-      t.integer :genre_id, null: false
+      t.string :genre, null: false
       t.timestamps
     end
   end

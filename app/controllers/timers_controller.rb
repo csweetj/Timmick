@@ -49,6 +49,6 @@ class TimersController < ApplicationController
   private
 
   def timer_params
-    params.permit(:count, :genre_id)
+    params.permit(:count, :genre)
   end
 end

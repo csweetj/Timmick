@@ -75,6 +75,11 @@
     </li>
   </ul>
 
+  <%= line_chart @study_timers.group(:genre).group_by_day(:created_at, last: 7).sum(:count), colors: ["#3182ce", "#63b3ed"], xtitle: "日付（直近一週間）", ytitle: "合計分数", curve: false, empty: "データがありません"%>
+  <%= line_chart @relax_timers.group(:genre).group_by_day(:created_at, last: 7).sum(:count), colors: ["#38a169", "#68d391"], xtitle: "日付（直近一週間）", ytitle: "合計セット数", curve: false, empty: "データがありません"%>
+  <%= line_chart @fitness_timers.group(:genre).group_by_day(:created_at, last: 7).sum(:count), colors: ["#f56565", "#ecc94b"], xtitle: "日付（直近一週間）", ytitle: "合計セット数", curve: false, empty: "データがありません"%>
+  <%= line_chart @hobby_timers.group(:genre).group_by_day(:created_at, last: 7).sum(:count), colors: ["#805ad5", "#d53f8c"], xtitle: "日付（直近一週間）", ytitle: "合計分数", curve: false, empty: "データがありません"%>
+
 
   <div class="flex items-center justify-between py-4 my-4 border-b">
     <% if current_user.id == @user.id %>
