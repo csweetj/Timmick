@@ -17,6 +17,7 @@ ja:
       post:
         title: "タイトル"
         body: "本文"
+        feature_images: "画像"
       comment:
         body: "コメント"
   date:
