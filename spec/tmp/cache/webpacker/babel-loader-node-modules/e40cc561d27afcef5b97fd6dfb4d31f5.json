@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default function modal_window() {}","map":{"version":3,"sources":["/Users/joe/My_app/Timmick/app/javascript/modal_window.js"],"names":["modal_window"],"mappings":"AAAA,eAAe,SAASA,YAAT,GAAwB,CAIpC","sourcesContent":["export default function modal_window() {\n\n    \n\n  }\n"]},"metadata":{},"sourceType":"module"}

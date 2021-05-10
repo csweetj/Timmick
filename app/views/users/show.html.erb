@@ -1,7 +1,7 @@
 <div class="max-w-6xl m-auto">
  
  <div class="flex items-center justify-between py-4 my-8 border-b">
-    <% if current_user.id == @user.id %>
+    <% if user_signed_in? && current_user.id == @user.id %>
       <h1 class="text-xl font-bold mb-0 text-gray-500">あなたのプロフィール</h1>
     <% else %>
       <h1 class="text-xl font-bold mb-0 text-gray-500"><%= @user.nickname %>さんのプロフィール</h1>
@@ -14,12 +14,10 @@
         <p class="text-gray-600 font-bold"><%= @user.nickname %></p>
       </div>
       <div class="flex justify-center mt-4">
-        <% if user_signed_in? %>
-          <% if @user.avatar.present?%>
-            <%= image_tag @user.avatar, class:"p-2 mx-auto w-24 h-24 rounded-full flex-shrink-0 object-cover object-center"%>
-          <% else %>
-            <img alt="user" src="/assets/user.jpeg" class="p-2 mx-auto w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
-          <% end %>
+        <% if @user.avatar.present?%>
+          <%= image_tag @user.avatar, class:"p-2 mx-auto w-24 h-24 rounded-full flex-shrink-0 object-cover object-center"%>
+        <% else %>
+          <img alt="user" src="/assets/user.jpeg" class="p-2 mx-auto w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
         <% end %>
       </div>
       <div class="mt-6 flex justify-around text-center">
@@ -52,7 +50,7 @@
   </div>
 
   <div class="flex items-center justify-between py-4 my-8 border-b">
-    <% if current_user.id == @user.id %>
+    <% if user_signed_in? && current_user.id == @user.id %>
       <h1 class="text-xl font-bold mb-0 text-gray-500">あなたのタイマーグラフ</h1>
     <% else %>
       <h1 class="text-xl font-bold mb-0 text-gray-500"><%= @user.nickname %>さんのタイマーグラフ</h1>
@@ -95,7 +93,7 @@
 
 
   <div class="flex items-center justify-between py-4 my-4 border-b">
-    <% if current_user.id == @user.id %>
+    <% if user_signed_in? && current_user.id == @user.id %>
       <h1 class="text-xl font-bold mb-0 text-gray-500">あなたの投稿</h1>
     <% else %>
       <h1 class="text-xl font-bold mb-0 text-gray-500"><%= @user.nickname %>さんの投稿</h1>
