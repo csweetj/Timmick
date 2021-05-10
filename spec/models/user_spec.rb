@@ -31,10 +31,12 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Eメールを入力してください')
       end
 
-      it '職業選択が必須であること' do
+      it '職業・性別選択が必須であること' do
         @user.career_id = nil
+        @user.gender_id = nil
         @user.valid?
         expect(@user.errors.full_messages).to include('職業を入力してください')
+        expect(@user.errors.full_messages).to include('性別を入力してください')
       end
 
       it 'メールアドレスが一意性であること' do
@@ -68,7 +70,7 @@ RSpec.describe User, type: :model do
         @user.password = '１２３ABC'
         @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include('パスワードは半角英数字を入力してください')
+        expect(@user.errors.full_messages).to include('パスワードは英数字を含め半角で入力してください')
       end
 
       it 'パスワードとパスワード（確認用）、値の一致が必須であること' do

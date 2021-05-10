@@ -15,7 +15,7 @@ class User < ApplicationRecord
     validates :nickname, length: { maximum: 10 }
     validates :email, uniqueness: true,
                       format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\z/i, message: 'に@を入力してください' }
-    validates :password, length: { minimum: 6 }, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "は半角英数字を入力してください"}
+    validates :password, length: { minimum: 6 }, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "は英数字を含め半角で入力してください"}
     validates :career_id, :gender_id, numericality: { other_than: 1, message: 'を選択してください' }
   end
 

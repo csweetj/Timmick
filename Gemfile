@@ -76,6 +76,7 @@ gem 'pry-rails'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 gem 'active_storage_validations'
+gem "aws-sdk-s3", require: false
 
 # 投稿タグ
 gem 'acts-as-taggable-on', '~> 7.0'
@@ -89,3 +90,4 @@ gem 'rails-i18n'
 # グラフ機能
 gem "chartkick"
 gem "groupdate"
+
