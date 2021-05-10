@@ -15,7 +15,7 @@
     <% end %>
 
     <div class="mb-6">
-      <%= f.label :アバター画像, class:"" %>
+      <%= f.label :アバター画像（JPEG、JPG、PNG）, class:"" %>
       <%= f.file_field :avatar, class:"" %>
     </div>
     
@@ -38,13 +38,13 @@
     </div>
 
     <div class="mb-6">
-      <%= f.label :パスワード（半角最低６文字）, class:"relative" %>
+      <%= f.label :パスワード（半角英数字最低６文字）, class:"relative" %>
         <span class="absolute text-red-600">*</span>
       <%= f.password_field :password, autocomplete: "new-password", class:"input" %>
     </div>
 
     <div class="mb-6">
-      <%= f.label :パスワード（確認）, class: "relative" %>
+      <%= f.label :パスワード確認, class: "relative" %>
         <span class="absolute text-red-600">*</span>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
     </div>
