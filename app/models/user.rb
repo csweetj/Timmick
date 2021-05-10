@@ -21,6 +21,7 @@ class User < ApplicationRecord
 
   # Userモデルアソシエーション
   has_one_attached :avatar
+  validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg']
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy

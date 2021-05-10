@@ -5,6 +5,7 @@ ja:
         nickname: ニックネーム
         career_id: 職業
         gender_id: 性別
+        avatar: プロフィール画像
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻

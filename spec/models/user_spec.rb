@@ -13,6 +13,15 @@ RSpec.describe User, type: :model do
     end
 
     context 'ユーザー登録できないとき' do
+      
+      it 'プロフィール画像の拡張子は.jpeg, .jpg, .png,以外では登録できないこと' do
+        @user.avatar = nil
+        file = fixture_file_upload('/files/test.bmp', 'image/bmp')
+        @user.avatar.attach(file)
+        @user.valid?
+        expect(@user.errors.full_messages).to include('プロフィール画像のContent Typeが不正です')
+      end
+
       it 'ニックネームが必須であること' do
         @user.nickname = nil
         @user.valid?
