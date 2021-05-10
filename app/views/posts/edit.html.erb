@@ -3,6 +3,6 @@
 
   <%= render 'form', post: @post %>
 
-<%= link_to '削除', @post, method: :delete, data: { confirm: 'ほんとに削除しますか？' } %></td> |
-<%= link_to '戻る', posts_path %>
+<%= link_to '変更せず戻る', posts_path, class: "btn-default btn w-1/2 flex item-center justify-center m-auto mb-6" %>
+<%= link_to '削除', @post, method: :delete, data: { confirm: 'ほんとに削除しますか？' }, class: "btn-default btn w-1/2 flex item-center justify-center m-auto mb-6 btn btn-red" %></td>
 </div>
