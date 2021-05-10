@@ -11,9 +11,9 @@
     </div>
     
     <div class="mb-6">
-      <%= f.label :ニックネーム, class:"relative" %>
+      <%= f.label :ニックネーム（最大１０文字）, class:"relative" %>
         <span class="absolute text-red-600">*</span>
-      <%= f.text_field :nickname, class:"input" %>
+      <%= f.text_field :nickname, class:"input", maxlength:'10' %>
     </div>
 
     <div class="mb-6">
@@ -25,7 +25,7 @@
     
 
     <div class="mb-6">
-      <%= f.label :パスワード（最低６文字）, class: "relative" %>
+      <%= f.label :パスワード（半角最低６文字）, class: "relative" %>
         <span class="absolute text-red-600">*</span>
       <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
     </div>
