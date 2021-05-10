@@ -17,6 +17,8 @@ ja:
       post:
         title: "タイトル"
         body: "本文"
+      comment:
+        body: "コメント"
   date:
     abbr_day_names:
     - 日
