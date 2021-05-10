@@ -74,6 +74,7 @@ gem 'pry-rails'
 # 画像処理
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
+gem 'active_storage_validations'
 
 # 投稿タグ
 gem 'acts-as-taggable-on', '~> 7.0'
