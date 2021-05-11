@@ -30,7 +30,5 @@ require("../Posts/tag_pagination")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-import "controllers"
 import "stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all';
