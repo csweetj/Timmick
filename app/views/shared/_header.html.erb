@@ -41,6 +41,7 @@
             <i class="fas fa-sign-out-alt"></i>
           <% end %>
         <% else %>
+          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:"mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none pr-3 py-1 btn btn-white" %>
           <%= link_to new_user_registration_path, class:"mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-xl pr-3 py-1 hover:text-blue-400", title: "ユーザー登録" do %>
             <i class="fas fa-user-plus"></i>
           <% end %>
