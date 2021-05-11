@@ -81,6 +81,9 @@ gem "aws-sdk-s3", require: false
 # 投稿タグ
 gem 'acts-as-taggable-on', '~> 7.0'
 
+# 検索機能
+gem 'ransack'
+
 # ページネーション
 gem 'kaminari'
 
