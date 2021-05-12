@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: Timmick_production
-  username: Timmick
+  username: root
   password: <%= ENV['TIMMICK_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
