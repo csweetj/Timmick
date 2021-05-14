@@ -4,7 +4,7 @@
       <% if @post.user.avatar.present? %>
         <%= image_tag @post.user.avatar, class:"flex items-center justify-center p-2 mx-auto w-16 h-16 rounded-full flex-shrink-0 object-cover object-center"%>
       <% else %>
-        <img alt="user" src="/assets/user.jpeg" class="w-10 h-10 rounded-full flex-shrink-0 object-cover object-center">
+        <img alt="user" src="/images/user.jpeg" class="w-10 h-10 rounded-full flex-shrink-0 object-cover object-center">
       <% end %>
       <span class="title-font font-medium px-2"><%= @post.user.nickname %></span>
     <% end %>

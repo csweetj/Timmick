@@ -11,7 +11,7 @@
             <% end %>
           <% else %>
             <%= link_to "/users/#{post.user.id}", title: "ユーザーページへ" do %>
-              <img alt="user" src="/assets/user.jpeg" class="inline-flex p-2 w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
+              <img alt="user" src="/images/user.jpeg" class="inline-flex p-2 w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
               <span class="title-font font-medium px-1"><%= post.user.nickname %></span>
             <% end %>
           <% end %>

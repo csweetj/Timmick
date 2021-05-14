@@ -17,7 +17,7 @@
         <% if @user.avatar.present?%>
           <%= image_tag @user.avatar, class:"p-2 mx-auto w-24 h-24 rounded-full flex-shrink-0 object-cover object-center"%>
         <% else %>
-          <img alt="user" src="/assets/user.jpeg" class="p-2 mx-auto w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
+          <img alt="user" src="/images/user.jpeg" class="p-2 mx-auto w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
         <% end %>
       </div>
       <div class="mt-6 flex justify-around text-center">
@@ -111,7 +111,7 @@
                 <%= image_tag post.user.avatar, class:"inline-flex items-center justify-center p-2 mx-auto w-16 h-16 rounded-full flex-shrink-0 object-cover object-center"%>
                 <span class="title-font font-medium"><%= post.user.nickname %></span>
               <% else %>
-                <img alt="user" src="/assets/user.jpeg" class="inline-flex p-2 w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
+                <img alt="user" src="/images/user.jpeg" class="inline-flex p-2 w-16 h-16 rounded-full flex-shrink-0 object-cover object-center">
                 <span class="title-font font-medium px-1"><%= post.user.nickname %></span>
               <% end %>
             <% end %>
