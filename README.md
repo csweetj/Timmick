@@ -37,9 +37,9 @@
 * タグ一覧、タグ検索機能
 
 ## 使用技術
-* HTML / CSS / JavaScript / Ruby(2.6.5) / Ruby on Rails(6.0.0)
+* HTML / CSS / JavaScript / Ruby(2.6.6) / Ruby on Rails(6.0.0)
 * AWS( EC2 / Nginx / Unicorn / MariaDB / S3 / ROUTE53 / ACM / ALB )
-* Docker / DockerHub / Rubocop / Rspec / Capistrano
+* Docker / Rubocop / Rspec / Capistrano
 * Git / GitHub / Visual Studio Code
 
 ## 制作目的
