@@ -1,33 +1,20 @@
 # Timmick
-# 概要
+## 概要
 時間を計測することで、それぞれの場面に使用した時間を視覚化でき
 また自分の成果を投稿できるアプリケーションです。
 
-# Application URL
+## Application URL
 
-# ゲストユーザーログイン機能付き
+## ゲストユーザーログイン機能付き
 未ログイン状態でのヘッダーに「ゲストユーザーログイン」をクリック
 （ゲストユーザーの編集・削除はできません。）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 利用方法
+1.ホーム画面にて用意されている４つの分野（学習・リラックス・フィットネス・娯楽）で時間を計測し保存する
+2.使用した時間と成果を投稿する
+3.気になるユーザーをフォローし、投稿にコメント・いいねする
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 機能一覧
+#### 時間計測関連
+* 手動計測スタート・一時中断機能
+* 
