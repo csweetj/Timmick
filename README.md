@@ -58,3 +58,6 @@ https://www.timmick-app.com/
 * CircleCIを実装
 * DM機能を実装
 * 通知機能を実装
+
+## ER図
+![データベースER図](https://user-images.githubusercontent.com/69447485/119130839-b2e09480-ba73-11eb-9cb6-f0864e65eeaf.png)
