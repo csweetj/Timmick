@@ -61,3 +61,7 @@ https://www.timmick-app.com/
 
 ## ER図
 ![データベースER図](https://user-images.githubusercontent.com/69447485/119130839-b2e09480-ba73-11eb-9cb6-f0864e65eeaf.png)
+
+## 画面遷移図
+![画面遷移図](https://user-images.githubusercontent.com/69447485/119133636-17512300-ba77-11eb-8991-db71cde24acc.png)
+
