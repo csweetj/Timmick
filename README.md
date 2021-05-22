@@ -65,3 +65,6 @@ https://www.timmick-app.com/
 ## 画面遷移図
 ![画面遷移図](https://user-images.githubusercontent.com/69447485/119133636-17512300-ba77-11eb-8991-db71cde24acc.png)
 
+## インフラ構成図
+![インフラ図](https://user-images.githubusercontent.com/69447485/119228748-5fdc0f80-bb4f-11eb-991a-6594f204ffc8.png)
+
