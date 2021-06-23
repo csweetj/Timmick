@@ -299,6 +299,8 @@ if (document.URL.match( /study/ )) {
         if (PomodoroBarValue == 1) {
           num1 += 25;
           PomodoroTime.value = num1;
+          PomodoroTime.readOnly = false;
+          PomodoroSave.disabled = false;
         }
       }
     });
@@ -316,6 +318,8 @@ if (document.URL.match( /study/ )) {
         if (StudentBarValue == 1) {
           num2 += 50;
           StudentTime.value = num2;
+          StudentTime.readOnly = false;
+          StudentSave.disabled = false;
         }
       }
     });

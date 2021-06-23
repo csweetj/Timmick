@@ -298,6 +298,8 @@ if (document.URL.match( /hobby/ )) {
         if (GameBarValue == 1) {
           num7 += 60;
           GameTime.value = num7;
+          GameTime.readOnly = false;
+          GameSave.disabled = false;
         }
       }
     });
@@ -315,6 +317,8 @@ if (document.URL.match( /hobby/ )) {
         if (HobbyBarValue == 1) {
           num8 += 30;
           HobbyTime.value = num8;
+          HobbyTime.readOnly = false;
+          HobbySave.disabled = false;
         }
       }
     });

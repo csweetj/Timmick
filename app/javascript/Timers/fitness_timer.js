@@ -168,6 +168,8 @@ if (document.URL.match( /fitness/ )) {
         num5 ++;
         HiitTime.value = num5;
         document.getElementById('HiitRest').click();
+        HiitTime.readOnly = false;
+        HiitSave.disabled = false;
       }
     });
 
@@ -198,8 +200,14 @@ if (document.URL.match( /fitness/ )) {
         num6++;
         StretchTime.value = num6;
         document.getElementById('StretchRest').click();
+        StretchTime.readOnly = false;
+        StretchSave.disabled = false;
       } else {
         document.getElementById('StretchKeep').click();
+        num6++;
+        StretchTime.value = num6;
+        StretchTime.readOnly = false;
+        StretchSave.disabled = false;
       }
     });
 

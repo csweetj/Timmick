@@ -165,10 +165,14 @@ if (document.URL.match( /relax/ )) {
         document.getElementById('BoxBreathingRest').click();
         num3 ++;
         BoxBreathingTime.value = num3;
+        BoxBreathingTime.readOnly = false;
+        BoxBreathingSave.disabled = false;
       } else {
         document.getElementById('BoxBreathingKeep').click();
         num3 ++;
         BoxBreathingTime.value = num3;
+        BoxBreathingTime.readOnly = false;
+        BoxBreathingSave.disabled = false;
       }
     });
 
@@ -303,6 +307,8 @@ if (document.URL.match( /relax/ )) {
         if (RemSleepBarValue == 1) {
           num4++;
           RemSleepTime.value = num4;
+          RemSleepTime.readOnly = false;
+          RemSleepSave.disabled = false;
         }
       }
     });    
